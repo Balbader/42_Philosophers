@@ -6,7 +6,7 @@ NAME		= philo
 AUTHOR		= jmazoyer
 
 CC			= clang
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -pthread
 CPPFLAGS	= $(foreach path, $(INC_PATH), -I$(path))
 CPPFLAGS	+= -MMD
 LDLIBS		= $(foreach lib, $(LIB_NAME), -l$(lib))

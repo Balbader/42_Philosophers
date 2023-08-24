@@ -20,4 +20,5 @@ the wait time of the 2nd thread.<br>
 
 # M.U.T.E.X in C
 
-
+In order to avoid the Race Condition, we can use M.U.T.E.X to lock & unlock the thread.<br>
+This will allow us 

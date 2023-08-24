@@ -14,7 +14,7 @@ int main(int ac, char **av)
 
 	if (pid == 0)
 		++x;
-	sleep(2);
+	// sleep(2);
 
 	printf("x value : %d\n", x);
 

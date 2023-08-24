@@ -8,14 +8,14 @@ int x = 2;
 void *routine_1()
 {
 	++x;
-	sleep(2);
+	// sleep(2);
 	printf("x value : %d\n", x);
 	return (NULL);
 }
 
 void *routine_2()
 {
-	sleep(2);
+	// sleep(2);
 	printf("x value : %d\n", x);
 	return (NULL);
 }

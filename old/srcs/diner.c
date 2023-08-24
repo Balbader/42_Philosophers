@@ -33,6 +33,10 @@ static t_bool	eat(t_philo *philo)
 	return (!*philo->is_diner_over);
 }
 
+/*
+ *  This is where the magic happens.
+*/
+
 void	*diner(void *arg)
 {
 	t_philo			*philo;

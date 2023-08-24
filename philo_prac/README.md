@@ -17,3 +17,7 @@ of as one thread might have been paused longer than expected.<br>
 In the case of a loop, if 2 threads are running simultaneously, once the 2nd thread has been put in pause, waiting for the process of the initial thread to run<br>
 for 1 round, the waiting time might simply be prolonged as the OS might interpret the process of the 1st thread as still running and simply postpone longer<br>
 the wait time of the 2nd thread.<br>
+
+# M.U.T.E.X in C
+
+

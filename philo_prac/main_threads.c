@@ -1,22 +1,16 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
 #include <pthread.h>
 
-int x = 2;
+int mails = 0;
+pthread_mutex_t mutex;
 
-void *routine_1()
+void *routine()
 {
-	++x;
-	// sleep(2);
-	printf("x value : %d\n", x);
-	return (NULL);
-}
-
-void *routine_2()
-{
-	// sleep(2);
-	printf("x value : %d\n", x);
+	for (int i = 0; i < 1000000; ++i){
+		pthread_mutex_lock(&mutex);
+		++mails;
+	}
 	return (NULL);
 }
 
@@ -24,10 +18,13 @@ int main(int ac, char **av)
 {
 	pthread_t t1;
 	pthread_t t2;
-	if (pthread_create(&t1, NULL, &routine_1, NULL) != 0) {
+
+	pthread_mutex_init(&mutex, NULL);
+
+	if (pthread_create(&t1, NULL, &routine, NULL) != 0) {
 		return (1);
 	}
-	if (pthread_create(&t2, NULL, &routine_2, NULL) != 0) {
+	if (pthread_create(&t2, NULL, &routine, NULL) != 0) {
 		return (2);
 	}
 	if (pthread_join(t1, NULL)) {
@@ -36,5 +33,9 @@ int main(int ac, char **av)
 	if (pthread_join(t2, NULL)) {
 		return (4);
 	}
+
+	pthread_mutex_destroy(&mutex);
+
+	printf("Total mails : %d\n", mails);
 	return (0);
 }

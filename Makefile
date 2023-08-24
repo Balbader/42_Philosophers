@@ -71,12 +71,6 @@ LINK 	  = Linking
 #                                  FUNCTIONS                                   #
 ################################################################################
 
-ifeq ($(OS),Windows_NT) 
-    detected_OS := Windows
-else
-    detected_OS := $(shell sh -c 'uname 2>/dev/null || echo Unknown')
-endif
-
 ifeq ($(detected_OS),Darwin) 
 	RUN_CMD = script -q "$(@F).log" $1 > /dev/null; \
 				RESULT=$$?
@@ -132,25 +126,7 @@ endef
 #                                    RULES                                     #
 ################################################################################
 
-all: header $(NAME)
-
-header:
-	@if [ $(S) -eq 1 ]; then \
-		:; \
-	else \
-		printf "%b" "$(GREEN)"; \
-		echo "           ___  _____ ___  ___      _        "; \
-		echo "          /   |/ __  \|  \/  |     | |       "; \
-		echo "         / /| |\`' / /'| .  . | __ _| | _____ "; \
-		echo "        / /_| |  / /  | |\/| |/ _\` | |/ / _ \\"; \
-		echo "        \___  |./ /___| |  | | (_| |   <  __/"; \
-		echo "            |_/\_____/\_|  |_/\__,_|_|\_\___|"; \
-		printf "%43b" "(run with \"V=1\" for Verbose)\n"; \
-		printf "%38b" "(\"N=1\" for Normal)\n"; \
-		printf "%42b" "(\"S=1\" for Silent)$(NO_COLOR)\n\n"; \
-		printf "%b" "$(BLUE)Name:	$(GREEN)$(NAME)\n"; \
-		printf "%b" "$(BLUE)Author:	$(GREEN)$(AUTHOR)$(NO_COLOR)\n\n"; \
-	fi
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(call run,$(CC) $(CFLAGS) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@ \

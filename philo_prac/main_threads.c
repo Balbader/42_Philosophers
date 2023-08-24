@@ -10,6 +10,7 @@ void *routine()
 	for (int i = 0; i < 1000000; ++i){
 		pthread_mutex_lock(&mutex);
 		++mails;
+		pthread_mutex_unlock(&mutex);
 	}
 	return (NULL);
 }

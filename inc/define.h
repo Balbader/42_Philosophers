@@ -19,5 +19,7 @@
 # define THINK			"is thinking"
 # define DIE			"died"
 # define MIN_NB_MEAL	"Each philosopher has eaten at least"
+# define THREAD_ALLOC	"The threads couldn't be allocated"
+# define THREAD_CREATE	"A thread couldn't be created"
 
 #endif // !DEFINE_H

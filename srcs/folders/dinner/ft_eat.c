@@ -12,6 +12,11 @@
 
 #include "philo.h"
 
+/*
+ * file		:	diner.c
+ * function	:	static t_bool eat(t_philo *philo)
+*/
+
 t_bool	ft_eat(t_philo *philo)
 {
 	time_t		time;

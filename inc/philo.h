@@ -26,7 +26,7 @@ t_bool	ft_init_mutexes_arr(pthread_mutex_t *forks, pthread_mutex_t *is_eating,
 t_bool	ft_init_mutexes(t_mutexes *mutexes, int nb_philo);
 t_bool	ft_init_philosophers(t_philo **philosophers, int nb_philo,
 		t_diner *diner_setup, t_config *config);
-void	ft_setup_philosophers(t_philo *philo, int i, t_diner_setup,
+void	ft_setup_philosophers(t_philo *philo, int i, t_diner *diner_setup,
 		t_config *config);
 
 // Start Dinner
@@ -43,6 +43,11 @@ t_bool	ft_start_dinner(t_diner *diner_setup, t_philo *philosophers,
 t_bool	ft_eat(t_philo *philo);
 void	ft_setup_dinner(t_diner *diner_setup);
 void	*ft_diner(void *arg);
+
+// Check Dinner
+void	ft_check_meal_count(t_philo *philosophers, int nb_philo,
+		int min_nb_meal);
+void	*ft_check_philosopher(void *arg);
 
 // Think
 t_bool	ft_is_thinking(t_philo *philo, time_t time, char *message);

@@ -32,5 +32,7 @@
 # define WRONG_TIME2	" valid integers between 0 and INT_MAX"
 # define WRONG_MEAL1	"The nb_of_meal must be"
 # define WRONG_MEAL2	" a valid integer between 0 and INT_MAX"
+# define MUTEX_DESTROY	"A mutex couldn't be destroyed"
+# define ERROR			-1
 
 #endif // !DEFINE_H

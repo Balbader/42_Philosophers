@@ -18,6 +18,10 @@
 
 # include <stdio.h>
 # include <limits.h>
+# include <pthread.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <sys/time.h>
 
 // Parsing
 t_bool	ft_parse_config(int ac, char **av, t_config *config);
@@ -57,13 +61,18 @@ t_bool	ft_is_thinking(t_philo *philo, time_t time, char *message);
 
 // Utils
 int		ft_strcmp(const char *s1, const char *s2);
+int		ft_print_err(char *err_msg_1, char *err_msg_2, int ret_val);
 long	ft_atoi_long(const char *str);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_memdel(void **ptr);
+void	ft_usleep(time_t usec);
+time_t	ft_get_time(void);
 t_bool	ft_is_dead(t_philo *philo, time_t time, char *message);
 
 // ============================================================================
 
 // Parsing
-t_bool	parse_config(int argc, char *argv[], t_config *config);
+t_bool	parse_conkfig(int argc, char *argv[], t_config *config);
 
 // Init
 t_bool	init_mutexes(t_mutexes *mutexes, int nb_philo);

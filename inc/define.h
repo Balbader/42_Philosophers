@@ -24,5 +24,13 @@
 # define MUTEX_INIT		"A mutex couldn't be initialized"
 # define MUTEX_ALLOC	"A mutex array couldn't be allocated"
 # define PHILO_ALLOC	"The philosophers couldn't be allocated"
+# define WRONG_ARGC1	"You must provide the 4 required arguments"
+# define WRONG_ARGC2	" (or 5 with the nb_of_meal)"
+# define WRONG_NB1		"The number of philosophers must be"
+# define WRONG_NB2		" a valid integer between 1 and INT_MAX"
+# define WRONG_TIME1	"The times (in milliseconds) must be"
+# define WRONG_TIME2	" valid integers between 0 and INT_MAX"
+# define WRONG_MEAL1	"The nb_of_meal must be"
+# define WRONG_MEAL2	" a valid integer between 0 and INT_MAX"
 
 #endif // !DEFINE_H

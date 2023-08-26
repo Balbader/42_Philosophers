@@ -2,7 +2,12 @@
 # define STURCTURES_H
 
 # include <pthread.h>
-# include "boolean.h"
+
+typedef enum e_bool
+{
+	FALSE = 0,
+	TRUE = 1
+}				t_bool;
 
 typedef struct s_mutexes
 {
@@ -18,6 +23,15 @@ typedef struct s_diner
 	pthread_t	*philo_monitors;
 	t_bool		is_diner_over;
 }				t_diner;
+
+typedef struct s_config
+{
+	long	nb_philo;
+	long	time_to_die;
+	long	time_to_eat;
+	long	time_to_sleep;
+	long	min_nb_meal;
+}				t_config;
 
 typedef struct s_philo
 {

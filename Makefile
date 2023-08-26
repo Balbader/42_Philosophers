@@ -39,6 +39,12 @@ INIT_FILES			:=	\
 						ft_setup_philosophers.c
 INIT				:=	$(addprefix $(INIT_DIR), $(INIT_FILES))
 
+PARSING_DIR			:=	parsing/
+PARSING_FILES		:=	\
+						ft_parse_config.c \
+						ft_parse_times.c
+PARSING				:=	$(addprefix $(PARSING_DIR), $(PARSING_FILES))
+
 START_DINNER_DIR	:=	start_dinner/
 START_DINNER_FILES	:=	\
 						ft_init_threads.c \

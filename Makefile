@@ -3,162 +3,86 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: baalbade <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/24 07:54:16 by baalbade          #+#    #+#              #
-#    Updated: 2023/08/24 07:54:18 by baalbade         ###   ########.fr        #
+#    Created: 2023/08/26 09:40:00 by baalbade          #+#    #+#              #
+#    Updated: 2023/08/26 09:40:08 by baalbade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-################################################################################
-#                                    CONFIG                                    #
-################################################################################
+########
+# NAME #
+########
+NAME				:=	philo
 
-NAME		= philo
+##############
+# SRCS FILES #
+##############
 
-CC			= clang
-CFLAGS		= -Wall -Wextra -Werror -pthread
-CPPFLAGS	= $(foreach path, $(INC_PATH), -I$(path))
-CPPFLAGS	+= -MMD
-LDLIBS		= $(foreach lib, $(LIB_NAME), -l$(lib))
-RM			= rm -fr
 
-V			= 0
-N			= 0
-S			= 0
-F			= 1
+###############
+# INGREDIENTS #
+###############
+INC_DIR				:=	./inc/
 
-################################################################################
-#                               SRCS - INCLUDES                                #
-################################################################################
+SRCS_DIR			:=	./srcs/
+SRCS_FILES			:=	\
+						$(check_dinner) \
+						$(dinner) \
+						$(init) \
+						$(think) \
+						$(start) \
+						$(utils) \
+						main.c
+SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
-LIB_NAME		= pthread
+BUILD_DIR			:=	.build
+OBJS				:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
+DEPS				:=	$(OBJS:.o=.d)
 
-INC_PATH		= inc
+CC					:=	cc
+CFLAGS				:=	-Wall -Wextra -Werror -g3
+IFLAGS				:=	$(addprefix -I, $(INC_DIR))
 
-SRC_PATH		= srcs
-SRC_NAME		=	main.c			\
-					utils.c			\
-					parsing.c		\
-					init.c			\
-					launch_diner.c	\
-					diner.c			\
-					monitor_diner.c	\
-					speak.c
+RM					:=	rm -r -f
+DIR_DUP				:=	mkdir -p $(dir $@)
 
-OBJ_PATH		= objs
-OBJ				= $(addprefix $(OBJ_PATH)/, $(SRC_NAME:.c=.o))
+##########
+# COLORS #
+##########
+RED					:=	\033[0;31m
+GREEN				:=	\033[0;32m
+YELLOW				:=	\033[0;33m
+RESET				:=	\033[0m
 
-DEP				= $(OBJ:.o=.d)
-
-VPATH			= $(SRC_PATH)
-
-################################################################################
-#                          COLORS - STRINGS - SYMBOLS                          #
-################################################################################
-
-RED		  = \033[0;31m
-B_RED	  = \033[0;91m
-GREEN	  = \033[0;32m
-B_GREEN	  = \033[0;92m
-YELLOW	  = \033[0;33m
-B_YELLOW  = \033[0;93m
-BLUE	  = \033[0;34m
-B_BLUE	  = \033[0;94m
-MAGENTA	  = \033[0;35m
-B_MAGENTA = \033[0;95m
-CYAN	  = \033[0;36m
-B_CYAN	  = \033[0;96m
-GRAY	  = \033[0;90m
-B_GRAY	  = \033[0;37m
-NO_COLOR  = \033[m
-
-MKDIR	  = Creating directory
-COMPIL	  = Compiling & assembling
-FLAGS	  = Compiler flags
-LINK 	  = Linking
-
-################################################################################
-#                                  FUNCTIONS                                   #
-################################################################################
-
-ifeq ($(detected_OS),Darwin) 
-	RUN_CMD = script -q "$(@F).log" $1 > /dev/null; \
-				RESULT=$$?
-else ifeq ($(detected_OS),Linux)
-	RUN_CMD = script -q -e -c "$(1)" "$(@F).log" > /dev/null; \
-				RESULT=$$?; \
-				sed -i '1d' "$(@F).log"; \
-				sed -i "$$(($$(wc -l < "$(@F).log")-1)),\$$d" "$(@F).log"
-else
-	RUN_CMD = $(1) 2> "$(@F).log"; \
-				RESULT=$$?
-endif
-
-define run
-if [ $(S) -eq 1 ]; then \
-	:; \
-elif [ $(N) -eq 1 ]; then \
-	printf "%b\n" "$(1)"; \
-elif [ $(V) -eq 1 ]; then \
-	printf "%b\n" "$(GRAY)$(1)"; \
-elif ( echo "$(@F)" | grep -q '\.o' ) && [ $(F) -eq 1 ]; then \
-	printf "%-30b%-35b\n" "$(BLUE)$(FLAGS)" "$(GRAY)$(CFLAGS)$(NO_COLOR)"; \
-fi
-if [ $(S) -eq 1 ]; then \
-	:; \
-elif ( echo "$(2)" | grep -q 'clean' ) && [ $(N) -eq 0 ]; then \
-	printf "%-58b" "$(BLUE)$(2)$(NO_COLOR)"; \
-elif [ $(N) -eq 0 ]; then \
-	printf "%-30b%-35b" "$(BLUE)$(2)" "$(3)$(@F)$(NO_COLOR)"; \
-fi
-if ( echo "$(2)" | grep -q 'clean' ); then \
-	$(1); \
-	RESULT=$$?; \
-else \
-	$(RUN_CMD); \
-fi ; \
-if [ $(S) -eq 1 ]; then \
-	:; \
-elif [ $(N) -eq 0 -a $$RESULT -ne 0 ]; then \
-	printf "%b\n" "$(RED)[KO]"; \
-elif [ $(N) -eq 0 -a -s "$(@F).log" ]; then \
-	printf "%b\n" "$(YELLOW)[WARN]"; \
-elif [ $(N) -eq 0 ]; then  \
-	printf "%b\n" "$(GREEN)[OK]"; \
-fi; \
-printf "%b" "$(NO_COLOR)"; \
-cat "$(@F).log" 2> /dev/null; \
-rm -f "$(@F).log"; \
-exit $$RESULT
-endef
-
-################################################################################
-#                                    RULES                                     #
-################################################################################
-
+###########
+# RECIPES #
+###########
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@$(call run,$(CC) $(CFLAGS) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@ \
-		,$(LINK),$(B_GREEN))
-	$(eval F=1)
+$(NAME): $(OBJS)
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
+	@$(CC) $(CFLAGS) -o $@
+	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
-$(OBJ_PATH)/%.o: %.c | $(OBJ_PATH)
-	@$(call run,$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@,$(COMPIL),$(B_CYAN))
-	$(eval F=0)
+$(BUILD_DIR)/%.o: $SRCS_DIR/%.c
+	@$(DIR_DUP)
+	@$(CC) $(CFLAGS) $(IFLAGS) -c -o $@ $<
 
-$(OBJ_PATH):
-	@$(call run,mkdir -p $@,$(MKDIR),$(B_BLUE))
+-include $(DEPS)
 
-clean: header
-	@$(call run,$(RM) $(OBJ_PATH) *.log,clean)
+clean:
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing object files...$(RESET)"
+	@$(RM) $(BUILD_DIR) $(DEPS)
+	@echo "[" "$(GREEN)OK$(RESET)" "] | Object files removed."
 
-fclean: clean
-	@$(call run,$(RM) $(NAME) $(BONUS_NAME),fclean)
+fclean:
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing binary files...$(RESET)"
+	@$(RM) $(NAME)
+	@echo "[" "$(GREEN)OK$(RESET)" "] | binary files removed."
 
-re: fclean all
+re:
+	@$(MAKE) fclean
+	@$(MAKE) all
 
--include $(DEP)
-
-.PHONY: all header clean fclean re
+.PHONY: all clean fclean re

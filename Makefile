@@ -19,7 +19,9 @@ NAME				:=	philo
 # SRCS FILES #
 ##############
 CHECK_DINNER_DIR	:=	check_dinner/
-CHECK_DINNER_FILES	:=
+CHECK_DINNER_FILES	:=	\
+						ft_check_meal_count.c \
+						ft_check_philosophers.c
 CHECK_DINNER		:= 	$(addprefix $(CHECK_DINNER_DIR), $(CHECK_DINNER_FILES))
 
 DINNER_DIR			:=	dinner/
@@ -37,10 +39,6 @@ INIT_FILES			:=	\
 						ft_setup_philosophers.c
 INIT				:=	$(addprefix $(INIT_DIR), $(INIT_FILES))
 
-THINK_DIR			:=	think/
-THINK_FILES			:=	ft_is_thinking.c
-THINK				:=	$(addprefix $(THINK_DIR), $(THINK_FILES))
-
 START_DINNER_DIR	:=	start_dinner/
 START_DINNER_FILES	:=	\
 						ft_init_threads.c \
@@ -48,6 +46,10 @@ START_DINNER_FILES	:=	\
 						ft_start_dinner.c \
 						ft_start_threads
 START_DINNER		:=	$(addprefix $(START_DINNER_DIR), $(START_DINNER_FILES))
+
+THINK_DIR			:=	think/
+THINK_FILES			:=	ft_is_thinking.c
+THINK				:=	$(addprefix $(THINK_DIR), $(THINK_FILES))
 
 UTILS_DIR			:=	utils/
 UTILS_FILES			:=	\

@@ -28,7 +28,7 @@ DINNER_DIR			:=	dinner/
 DINNER_FILES		:=	\
 						ft_dinner.c \
 						ft_eat.c \
-						ft_setup_denner.c
+						ft_setup_dinner.c
 DINNER				:=	$(addprefix $(DINNER_DIR), $(DINNER_FILES))
 
 INIT_DIR			:=	init/
@@ -60,6 +60,8 @@ THINK				:=	$(addprefix $(THINK_DIR), $(THINK_FILES))
 UTILS_DIR			:=	utils/
 UTILS_FILES			:=	\
 						ft_atoi_long.c \
+						ft_clean_exit.c \
+						ft_clean_mutexes.c \
 						ft_get_time.c \
 						ft_is_dead.c \
 						ft_memdel.c \

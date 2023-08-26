@@ -19,18 +19,23 @@ NAME				:=	philo
 # SRCS FILES #
 ##############
 CHECK_DINNER_DIR	:=	check_dinner/
-CHECK_DINNER_FILES	:= 	check_dinner/
-CHECK_DINNER		:= 	check_dinner/
+CHECK_DINNER_FILES	:=
+CHECK_DINNER		:= 	$(addprefix $(CHECK_DINNER_DIR), $(CHECK_DINNER_FILES))
 
 DINNER_DIR			:=	dinner/
 DINNER_FILES		:=	\
 						ft_dinner.c \
-						ft_eat.c
+						ft_eat.c \
+						ft_setup_denner.c
 DINNER				:=	$(addprefix $(DINNER_DIR), $(DINNER_FILES))
 
 INIT_DIR			:=	init/
-INIT_FILES			:=
-INIT				:=
+INIT_FILES			:=	\
+						ft_init_mutexes_arr.c \
+						ft_init_mutexes.c \
+						ft_init_philosophers.c \
+						ft_setup_philosophers.c
+INIT				:=	$(addprefix $(INIT_DIR), $(INIT_FILES))
 
 THINK_DIR			:=	think/
 THINK_FILES			:=	ft_is_thinking.c
@@ -45,8 +50,10 @@ START_DINNER_FILES	:=	\
 START_DINNER		:=	$(addprefix $(START_DINNER_DIR), $(START_DINNER_FILES))
 
 UTILS_DIR			:=	utils/
-UTILS_FILES			:=
-UTILS				:=
+UTILS_FILES			:=	\
+						ft_is_dead.c \
+						ft_strcmp.c \
+UTILS				:=	$(addprefix $(UTILS_DIR), $(UTILS_FILES))
 
 ###############
 # INGREDIENTS #

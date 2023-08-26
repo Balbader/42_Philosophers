@@ -17,8 +17,11 @@
 # include "define.h"
 
 # include <stdio.h>
+# include <limits.h>
 
 // Parsing
+t_bool	ft_parse_config(int ac, char **av, t_config *config);
+t_bool	ft_record_times(char **av, t_config *config);
 
 // Init
 t_bool	ft_init_mutexes_arr(pthread_mutex_t *forks, pthread_mutex_t *is_eating,
@@ -54,6 +57,7 @@ t_bool	ft_is_thinking(t_philo *philo, time_t time, char *message);
 
 // Utils
 int		ft_strcmp(const char *s1, const char *s2);
+long	ft_atoi_long(const char *str);
 t_bool	ft_is_dead(t_philo *philo, time_t time, char *message);
 
 // ============================================================================

@@ -21,6 +21,13 @@
 // Parsing
 
 // Init
+t_bool	ft_init_mutexes_arr(pthread_mutex_t *forks, pthread_mutex_t *is_eating,
+		int nb_philo);
+t_bool	ft_init_mutexes(t_mutexes *mutexes, int nb_philo);
+t_bool	ft_init_philosophers(t_philo **philosophers, int nb_philo,
+		t_diner *diner_setup, t_config *config);
+void	ft_setup_philosophers(t_philo *philo, int i, t_diner_setup,
+		t_config *config);
 
 // Start Dinner
 t_bool	ft_init_threads_monitoring(pthread_t *philo_threads,
@@ -34,6 +41,7 @@ t_bool	ft_start_dinner(t_diner *diner_setup, t_philo *philosophers,
 
 // Dinner
 t_bool	ft_eat(t_philo *philo);
+void	ft_setup_dinner(t_diner *diner_setup);
 void	*ft_diner(void *arg);
 
 // Think

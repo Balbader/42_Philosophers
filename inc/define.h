@@ -21,5 +21,8 @@
 # define MIN_NB_MEAL	"Each philosopher has eaten at least"
 # define THREAD_ALLOC	"The threads couldn't be allocated"
 # define THREAD_CREATE	"A thread couldn't be created"
+# define MUTEX_INIT		"A mutex couldn't be initialized"
+# define MUTEX_ALLOC	"A mutex array couldn't be allocated"
+# define PHILO_ALLOC	"The philosophers couldn't be allocated"
 
 #endif // !DEFINE_H

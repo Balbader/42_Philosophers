@@ -15,7 +15,6 @@
 ################################################################################
 
 NAME		= philo
-AUTHOR		= jmazoyer
 
 CC			= clang
 CFLAGS		= -Wall -Wextra -Werror -pthread

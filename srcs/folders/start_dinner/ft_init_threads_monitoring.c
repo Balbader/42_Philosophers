@@ -13,7 +13,6 @@
 #include "philo.h"
 
 /*
- * folder	:	launch_diner
  * file		:	launch_diner.c
  * function	:	static t_bool create_monitor_threads
 */

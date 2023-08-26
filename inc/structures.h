@@ -55,7 +55,7 @@ typedef struct s_philo
 	time_t			time_to_die;
 	time_t			time_to_eat;
 	time_t			time_to_sleep;
-	pthread_mutex_t	*is_speaking;
+	pthread_mutex_t	*is_thinking;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	*is_eating;
 	int				nb_forks;

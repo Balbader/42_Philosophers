@@ -59,8 +59,14 @@ THINK				:=	$(addprefix $(THINK_DIR), $(THINK_FILES))
 
 UTILS_DIR			:=	utils/
 UTILS_FILES			:=	\
+						ft_atoi_long.c \
+						ft_get_time.c \
 						ft_is_dead.c \
+						ft_memdel.c \
+						ft_print_err.c \
+						ft_putstr_fd.c \
 						ft_strcmp.c \
+						ft_usleep.c
 UTILS				:=	$(addprefix $(UTILS_DIR), $(UTILS_FILES))
 
 ###############

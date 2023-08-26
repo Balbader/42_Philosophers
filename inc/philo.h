@@ -26,17 +26,20 @@ t_bool	init_philosophers(t_philo **philosophers, int nb_philo,
 			t_diner *diner_setup, t_config *config);
 
 // Dinner
+t_bool	ft_eat(t_philo *philo);
+void	*ft_diner(void *arg);
+
+
 t_bool	launch_diner(t_diner *diner_setup, t_philo *philosophers, int nb_philo);
-void	*diner(void *arg);
 void	*monitor_philo(void *arg);
 void	monitor_nb_meals(t_philo *philosophers, int nb_philo, int min_nb_meal);
 t_bool	speak(t_philo *philo, time_t time, char *msg);
 t_bool	announce_death(t_philo *philo, time_t time, char *msg);
 
 // Utils
-int			print_error(char *error_msg1, char *error_msg2, int return_value);
-time_t		get_time(void);
-void		ft_memdel(void **ptr);
-void		ft_usleep(time_t usec);
+int		print_error(char *error_msg1, char *error_msg2, int return_value);
+time_t	get_time(void);
+void	ft_memdel(void **ptr);
+void	ft_usleep(time_t usec);
 
 #endif // !PHILO_H

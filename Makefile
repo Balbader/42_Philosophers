@@ -23,20 +23,26 @@ CHECK_DINNER_FILES	:= 	check_dinner/
 CHECK_DINNER		:= 	check_dinner/
 
 DINNER_DIR			:=	dinner/
-DINNER_FILES		:=
-DINNER				:=
+DINNER_FILES		:=	\
+						ft_dinner.c \
+						ft_eat.c
+DINNER				:=	$(addprefix $(DINNER_DIR), $(DINNER_FILES))
 
 INIT_DIR			:=	init/
 INIT_FILES			:=
 INIT				:=
 
 THINK_DIR			:=	think/
-THINK_FILES			:= 
-THINK				:= 
+THINK_FILES			:=	ft_is_thinking.c
+THINK				:=	$(addprefix $(THINK_DIR), $(THINK_FILES))
 
 START_DINNER_DIR	:=	start_dinner/
-START_DINNER_FILES	:=
-START_DINNER		:=
+START_DINNER_FILES	:=	\
+						ft_init_threads.c \
+						ft_init_threads_monitoring.c \
+						ft_start_dinner.c \
+						ft_start_threads
+START_DINNER		:=	$(addprefix $(START_DINNER_DIR), $(START_DINNER_FILES))
 
 UTILS_DIR			:=	utils/
 UTILS_FILES			:=

@@ -18,7 +18,29 @@ NAME				:=	philo
 ##############
 # SRCS FILES #
 ##############
+CHECK_DINNER_DIR	:=	check_dinner/
+CHECK_DINNER_FILES	:= 	check_dinner/
+CHECK_DINNER		:= 	check_dinner/
 
+DINNER_DIR			:=	dinner/
+DINNER_FILES		:=
+DINNER				:=
+
+INIT_DIR			:=	init/
+INIT_FILES			:=
+INIT				:=
+
+THINK_DIR			:=	think/
+THINK_FILES			:= 
+THINK				:= 
+
+START_DINNER_DIR	:=	start_dinner/
+START_DINNER_FILES	:=
+START_DINNER		:=
+
+UTILS_DIR			:=	utils/
+UTILS_FILES			:=
+UTILS				:=
 
 ###############
 # INGREDIENTS #

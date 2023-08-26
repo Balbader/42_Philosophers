@@ -25,16 +25,19 @@ void	init_diner_setup(t_diner *diner_setup);
 t_bool	init_philosophers(t_philo **philosophers, int nb_philo,
 			t_diner *diner_setup, t_config *config);
 
-// Dinner
-t_bool	ft_eat(t_philo *philo);
-void	*ft_diner(void *arg);
-
+// Start Dinner
+t_bool	ft_init_threads_monitoring(pthread_t *philo_threads,
+			pthread_t *philo_monitor, t_philo *philosophers, int i);
 
 t_bool	launch_diner(t_diner *diner_setup, t_philo *philosophers, int nb_philo);
 void	*monitor_philo(void *arg);
 void	monitor_nb_meals(t_philo *philosophers, int nb_philo, int min_nb_meal);
 t_bool	speak(t_philo *philo, time_t time, char *msg);
 t_bool	announce_death(t_philo *philo, time_t time, char *msg);
+
+// Dinner
+t_bool	ft_eat(t_philo *philo);
+void	*ft_diner(void *arg);
 
 // Utils
 int		print_error(char *error_msg1, char *error_msg2, int return_value);

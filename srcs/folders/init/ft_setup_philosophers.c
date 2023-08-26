@@ -17,7 +17,7 @@
  * function	:	t_bool init_philo
 */
 
-void	ft_setup_philosophers(t_philo *philo, int i, t_diner_setup,
+void	ft_setup_philosophers(t_philo *philo, int i, t_diner *diner_setup,
 		t_config *config)
 {
 	t_mutexes	*mutexes;

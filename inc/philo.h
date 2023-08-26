@@ -28,6 +28,8 @@ t_bool	init_philosophers(t_philo **philosophers, int nb_philo,
 // Start Dinner
 t_bool	ft_init_threads_monitoring(pthread_t *philo_threads,
 			pthread_t *philo_monitor, t_philo *philosophers, int i);
+t_bool	ft_init_threads(pthread_t *philo_threads, pthread_t *philo_monitors,
+		t_philo *philosophers, int i);
 
 t_bool	launch_diner(t_diner *diner_setup, t_philo *philosophers, int nb_philo);
 void	*monitor_philo(void *arg);

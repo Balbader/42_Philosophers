@@ -35,7 +35,7 @@ F			= 1
 
 LIB_NAME		= pthread
 
-INC_PATH		= includes
+INC_PATH		= inc
 
 SRC_PATH		= srcs
 SRC_NAME		=	main.c			\

@@ -1,77 +1,36 @@
-#include <pthread.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "philo_utils.h"
-#include "philo_parsing.h"
-#include "philosophers.h"
-#include "philo_init.h"
-#include "philo_diner.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 17:15:21 by baalbade          #+#    #+#             */
+/*   Updated: 2023/08/26 17:15:23 by baalbade         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#define ERROR		-1
+#include "philo.h"
 
-#define MTX_DESTROY	"A mutex couldn't be destroyed"
-
-static void	clean_mutexes(t_mutexes *mutexes, int nb_philo)
+int	main(int ac, char **av)
 {
-	int		i;
-
-	if (pthread_mutex_destroy(&mutexes->is_speaking) != 0)
-		print_error(MTX_DESTROY, NULL, ERROR);
-	i = 0;
-	while (i < nb_philo)
-	{
-		if (pthread_mutex_destroy(&mutexes->forks[i]) != 0)
-			print_error(MTX_DESTROY, NULL, ERROR);
-		if (pthread_mutex_destroy(&mutexes->is_eating[i++]) != 0)
-			print_error(MTX_DESTROY, NULL, ERROR);
-	}
-	free(mutexes->forks);
-	free(mutexes->is_eating);
-}
-
-static int	clean_exit(t_diner *diner_setup, t_philo *philosophers,
-				int nb_philo, int return_value)
-{
-	int		i;
-
-	if (diner_setup->philo_threads)
-	{
-		i = 0;
-		while (i < nb_philo)
-		{
-			pthread_join(diner_setup->philo_threads[i], NULL);
-			pthread_join(diner_setup->philo_monitors[i++], NULL);
-		}
-	}
-	clean_mutexes(&diner_setup->mutexes, nb_philo);
-	if (diner_setup->philo_threads)
-		free(diner_setup->philo_threads);
-	if (diner_setup->philo_monitors)
-		free(diner_setup->philo_monitors);
-	if (philosophers)
-		free(philosophers);
-	return (return_value);
-}
-
-int	main(int argc, char *argv[])
-{
-	t_config	config;
 	int			nb_philo;
+	t_config	config;
 	t_diner		diner_setup;
 	t_philo		*philosophers;
 
-	if (!parse_config(argc, argv, &config))
+	if (!ft_parse_config(argc, argv, &config))
 		return (ERROR);
 	nb_philo = config.nb_philo;
-	if (!init_mutexes(&diner_setup.mutexes, nb_philo))
+	if (!ft_init_mutexes(&diner_setup.mutexes, nb_philo))
 		return (ERROR);
-	init_diner_setup(&diner_setup);
-	if (!init_philosophers(&philosophers, nb_philo, &diner_setup, &config))
-		return (clean_exit(&diner_setup, NULL, nb_philo, ERROR));
-	if (!launch_diner(&diner_setup, philosophers, nb_philo))
-		return (clean_exit(&diner_setup, philosophers, nb_philo, ERROR));
+	ft_setup_dinner(&diner_setup);
+	if (!ft_init_philosophers(&philosophers, nb_philo, &diner_setup, &config))
+		return (ft_clean_exit(&diner_setup, NULL, nb_philo, ERROR));
+	if (!ft_start_diner(&diner_setup, philosophers, nb_philo))
+		return (ft_clean_exit(&diner_setup, philosophers, nb_philo, ERROR));
 	if (config.min_nb_meal >= 0)
-		monitor_nb_meals(philosophers, nb_philo, config.min_nb_meal);
-	clean_exit(&diner_setup, philosophers, nb_philo, 0);
+		ft_check_meal_count(philosophers, nb_philo, config.min_nb_meal);
+	ft_clean_exit(&diner_setup, philosophers, nb_philo, 0);
 	return (0);
 }

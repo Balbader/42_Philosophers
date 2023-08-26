@@ -12,6 +12,11 @@
 
 #include "philo.h"
 
+/*
+ * file		:	diner.c
+ * function	:	void *diner(void *arg)
+*/
+
 void	*ft_diner(void *arg)
 {
 	t_philo			*philo;

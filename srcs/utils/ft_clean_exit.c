@@ -12,7 +12,8 @@
 
 #include "philo.h"
 
-int	ft_clean_exit(t_diner *diner_setup, t_philo *philosophers, int nb_philo, int ret_val)
+int	ft_clean_exit(t_diner *diner_setup, t_philo *philosophers,
+		int nb_philo, int ret_val)
 {
 	int		i;
 

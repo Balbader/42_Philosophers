@@ -78,12 +78,13 @@ INC_DIR				:=	./inc/
 
 SRCS_DIR			:=	./srcs/
 SRCS_FILES			:=	\
-						$(check_dinner) \
-						$(dinner) \
-						$(init) \
-						$(think) \
-						$(start) \
-						$(utils) \
+						$(CHECK_DINNER) \
+						$(DINNER) \
+						$(INIT) \
+						$(PARSING) \
+						$(START_DINNER) \
+						$(THINK) \
+						$(UTILS) \
 						main.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
@@ -92,7 +93,7 @@ OBJS				:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
 DEPS				:=	$(OBJS:.o=.d)
 
 CC					:=	cc
-CFLAGS				:=	-Wall -Wextra -Werror -g3
+CFLAGS				:=	-Wall -Wextra -Werror -pthread -g3
 IFLAGS				:=	$(addprefix -I, $(INC_DIR))
 
 RM					:=	rm -r -f

@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	t_diner		diner_setup;
 	t_philo		*philosophers;
 
-	if (!ft_parse_config(argc, argv, &config))
+	if (!ft_parse_config(ac, av, &config))
 		return (ERROR);
 	nb_philo = config.nb_philo;
 	if (!ft_init_mutexes(&diner_setup.mutexes, nb_philo))

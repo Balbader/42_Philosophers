@@ -74,20 +74,20 @@ UTILS				:=	$(addprefix $(UTILS_DIR), $(UTILS_FILES))
 ###############
 # INGREDIENTS #
 ###############
-LIB					:=	-lpthread
+LIB					:=	pthread
 
 INC_DIR				:=	./inc/
 
 SRCS_DIR			:=	./srcs/
 SRCS_FILES			:=	\
+						main.c \
 						$(CHECK_DINNER) \
 						$(DINNER) \
 						$(INIT) \
 						$(PARSING) \
 						$(START_DINNER) \
 						$(THINK) \
-						$(UTILS) \
-						main.c
+						$(UTILS)
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR			:=	.build
@@ -99,6 +99,7 @@ CFLAGS				:=	-Wall -Wextra -Werror -pthread -g3
 # CFLAGS				:=	-Wall -Wextra -Werror -pthread -g3 -v
 CPPFLAGS			:=	-MMD -MP -I include
 IFLAGS				:=	$(addprefix -I, $(INC_DIR))
+LFLAGS				:=	$(addprefix -l, $(LIB))
 
 RM					:=	rm -r -f
 DIR_DUP				:=	mkdir -p $(dir $@)
@@ -118,7 +119,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
-	@$(CC) $(CFLAGS) $(LIB) -o $(NAME) $(OBJS)
+	@$(CC) $(OBJS) $(CFLAGS) $(LFLAGS) -o $(NAME)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c

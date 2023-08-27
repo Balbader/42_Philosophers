@@ -23,6 +23,9 @@
 # include <unistd.h>
 # include <sys/time.h>
 
+//  Main
+int	main(int ac, char **av);
+
 // Parsing
 t_bool	ft_parse_config(int ac, char **av, t_config *config);
 t_bool	ft_record_times(char **av, t_config *config);

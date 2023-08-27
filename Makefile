@@ -74,7 +74,7 @@ UTILS				:=	$(addprefix $(UTILS_DIR), $(UTILS_FILES))
 ###############
 # INGREDIENTS #
 ###############
-LIB					:=	pthread
+LIB					:=	-lpthread
 
 INC_DIR				:=	./inc/
 
@@ -119,7 +119,7 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $@ $^ $(LIB)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
-$(BUILD_DIR)/%.o: $SRCS_DIR/%.c
+$(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 	@$(DIR_DUP)
 	@$(CC) $(CFLAGS) $(IFLAGS) -c -o $@ $<
 

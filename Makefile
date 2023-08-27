@@ -74,6 +74,8 @@ UTILS				:=	$(addprefix $(UTILS_DIR), $(UTILS_FILES))
 ###############
 # INGREDIENTS #
 ###############
+LIB					:=	pthread
+
 INC_DIR				:=	./inc/
 
 SRCS_DIR			:=	./srcs/
@@ -114,7 +116,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
-	@$(CC) $(CFLAGS) -o $@
+	@$(CC) $(CFLAGS) -o $@ $^ $(LIB)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
 $(BUILD_DIR)/%.o: $SRCS_DIR/%.c

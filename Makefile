@@ -80,29 +80,29 @@ INC_DIR				:=	./inc/
 
 SRCS_DIR			:=	./srcs/
 SRCS_FILES			:=	\
-						main.c \
 						$(CHECK_DINNER) \
 						$(DINNER) \
 						$(INIT) \
 						$(PARSING) \
 						$(START_DINNER) \
 						$(THINK) \
-						$(UTILS)
+						$(UTILS) \
+						main.c
+SRCS				:=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR			:=	.build
 OBJS				:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
 DEPS				:=	$(OBJS:.o=.d)
 
-CC					:=	cc
+CC					:=	gcc
 CFLAGS				:=	-Wall -Wextra -Werror -pthread -g3
-# CFLAGS				:=	-Wall -Wextra -Werror -pthread -g3 -v
-CPPFLAGS			:=	-MMD -MP -I include
+CPPFLAGS			:=	-MMD -MP
 IFLAGS				:=	$(addprefix -I, $(INC_DIR))
 LFLAGS				:=	$(addprefix -l, $(LIB))
 
 RM					:=	rm -r -f
-DIR_DUP				:=	mkdir -p $(dir $@)
+DIR_DUP				=	mkdir -p $(dir $@)
 
 ##########
 # COLORS #
@@ -119,12 +119,12 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
-	@$(CC) $(OBJS) $(CFLAGS) $(LFLAGS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(LFLAGS) -o $(NAME) $(OBJS)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 	@$(DIR_DUP)
-	@$(CC) $(CFLAGS) $(CPPFLAGS) $(IFLAGS) -c -o $@ $<
+	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 -include $(DEPS)
 
@@ -133,7 +133,7 @@ clean:
 	@$(RM) $(BUILD_DIR) $(DEPS)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Object files removed."
 
-fclean:
+fclean: clean
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing binary files...$(RESET)"
 	@$(RM) $(NAME)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | binary files removed."

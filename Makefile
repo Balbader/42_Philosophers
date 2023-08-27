@@ -96,6 +96,8 @@ DEPS				:=	$(OBJS:.o=.d)
 
 CC					:=	cc
 CFLAGS				:=	-Wall -Wextra -Werror -pthread -g3
+# CFLAGS				:=	-Wall -Wextra -Werror -pthread -g3 -v
+CPPFLAGS			:=	-MMD -MP -I include
 IFLAGS				:=	$(addprefix -I, $(INC_DIR))
 
 RM					:=	rm -r -f
@@ -116,12 +118,12 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
-	@$(CC) $(CFLAGS) -o $@ $^ $(LIB)
+	@$(CC) $(CFLAGS) $(LIB) -o $(NAME) $(OBJS)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 	@$(DIR_DUP)
-	@$(CC) $(CFLAGS) $(IFLAGS) -c -o $@ $<
+	@$(CC) $(CFLAGS) $(CPPFLAGS) $(IFLAGS) -c -o $@ $<
 
 -include $(DEPS)
 

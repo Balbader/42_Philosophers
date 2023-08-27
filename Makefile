@@ -119,11 +119,13 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
-	@$(CC) $(CFLAGS) $(LFLAGS) -o $(NAME) $(OBJS)
+	# @$(CC) $(CFLAGS) $(LFLAGS) -o $@ $^
+	@$(CC) $(CFLAGS) $(LFLAGS) -o $(NAME)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 	@$(DIR_DUP)
+	# @$(CC) $(CFLAGS) $(IFLAGS) -c -o $@ $<
 	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 -include $(DEPS)

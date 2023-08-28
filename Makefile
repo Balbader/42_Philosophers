@@ -76,10 +76,10 @@ UTILS				:=	$(addprefix $(UTILS_DIR), $(UTILS_FILES))
 ###############
 LIB					:=	pthread
 
-INC_DIR				:=	./inc/
+INC					:=	./inc/
 
 SRCS_DIR			:=	./srcs/
-SRCS_FILES			:=	\
+SRCS				:=	\
 						$(CHECK_DINNER) \
 						$(DINNER) \
 						$(INIT) \
@@ -88,21 +88,20 @@ SRCS_FILES			:=	\
 						$(THINK) \
 						$(UTILS) \
 						main.c
-SRCS				:=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR			:=	.build
 OBJS				:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
 DEPS				:=	$(OBJS:.o=.d)
 
-CC					:=	gcc
+CC					:=	cc
 CFLAGS				:=	-Wall -Wextra -Werror -pthread -g3
 CPPFLAGS			:=	-MMD -MP
-IFLAGS				:=	$(addprefix -I, $(INC_DIR))
+IFLAGS				:=	$(addprefix -I, $(INC))
 LFLAGS				:=	$(addprefix -l, $(LIB))
 
 RM					:=	rm -r -f
-DIR_DUP				=	mkdir -p $(dir $@)
+DIR_DUP				=	mkdir -p $(@D)
 
 ##########
 # COLORS #
@@ -120,13 +119,13 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
 	# @$(CC) $(CFLAGS) $(LFLAGS) -o $@ $^
-	@$(CC) $(CFLAGS) $(LFLAGS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME) $(LFLAGS)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 	@$(DIR_DUP)
-	# @$(CC) $(CFLAGS) $(IFLAGS) -c -o $@ $<
-	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(CPPFLAGS) $(IFLAGS) -c -o $@ $<
+	# @$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 -include $(DEPS)
 

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <sys/time.h>
 
 /*
  * file		:	monitor_diner.c
@@ -33,7 +34,7 @@ void	ft_check_meal_count(t_philo *philosophers, int nb_philo,
 				break ;
 			if ((i + 1) == nb_philo)
 			{
-				speak(philo, get_time(), MIN_NB_MEAL);
+				ft_is_thinking(philo, ft_get_time(), MIN_NB_MEAL);
 				*philo->is_diner_over = TRUE;
 				return ;
 			}

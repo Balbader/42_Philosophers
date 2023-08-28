@@ -23,18 +23,18 @@ typedef enum e_bool
 
 typedef struct s_mutexes
 {
-	pthread_mutex_t		is_speaking;
+	pthread_mutex_t		is_thinkinging;
 	pthread_mutex_t		*forks;
 	pthread_mutex_t		*is_eating;
 }				t_mutexes;
 
-typedef struct s_diner
+typedef struct s_dinner
 {
 	t_mutexes			mutexes;
 	pthread_t			*philo_threads;
 	pthread_t			*philo_monitors;
-	t_bool				is_diner_over;
-}				t_diner;
+	t_bool				is_dinner_over;
+}				t_dinner;
 
 typedef struct s_config
 {

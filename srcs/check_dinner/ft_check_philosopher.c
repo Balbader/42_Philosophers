@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+// #include "philo.h"
+#include "../../inc/philo.h"
 
 /*
  * file		:	monitor_diner.c

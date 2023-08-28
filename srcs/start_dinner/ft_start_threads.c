@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+// #include "philo.h"
+#include "../../inc/philo.h"
 
 /*
  * file		:	launch_diner.c
@@ -24,14 +25,14 @@ t_bool	ft_start_threads(t_diner *diner_setup, t_philo *phlosophers,
 	time_t		time;
 
 	i = 0;
-	time = get_time();
+	time = ft_get_time();
 	while (i < nb_philo)
 	{
 		philosophers[i].last_meal = time;
 		philosophers[i].start_time = time;
-		if (!create_threads(diner_setup->philo_threads,
+		if (!ft_init_threads(diner_setup->philo_threads,
 				diner_setup->philo_monitors, philosophers, i))
-			return (print_error(THREAD_CREATE, NULL, FALSE));
+			return (ft_print_error(THREAD_CREATE, NULL, FALSE));
 		i += 2;
 		if (i % 2 == 0 && i >= nb_philo)
 		{

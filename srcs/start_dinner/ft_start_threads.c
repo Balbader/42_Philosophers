@@ -10,15 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "philo.h"
-#include "../../inc/philo.h"
+#include "philo.h"
 
 /*
  * file		:	launch_diner.c
  * function	:	static t_bool launch_threads
 */
 
-t_bool	ft_start_threads(t_diner *diner_setup, t_philo *phlosophers,
+t_bool	ft_start_threads(t_dinner *diner_setup, t_philo *philosophers,
 		int nb_philo)
 {
 	int			i;
@@ -32,7 +31,7 @@ t_bool	ft_start_threads(t_diner *diner_setup, t_philo *phlosophers,
 		philosophers[i].start_time = time;
 		if (!ft_init_threads(diner_setup->philo_threads,
 				diner_setup->philo_monitors, philosophers, i))
-			return (ft_print_error(THREAD_CREATE, NULL, FALSE));
+			return (ft_print_err(THREAD_CREATE, NULL, FALSE));
 		i += 2;
 		if (i % 2 == 0 && i >= nb_philo)
 		{

@@ -32,7 +32,8 @@ t_bool	ft_init_threads(pthread_t *philo_threads, pthread_t *philo_monitors,
 		ft_memdel((void **)&philo_monitors);
 		return (FALSE);
 	}
-	if (!ft_init_threads_monitoring(philo_threads, philo_monitors, philosophers, i))
+	if (!ft_init_threads_monitoring(philo_threads, philo_monitors,
+			philosophers, i))
 		return (FALSE);
 	return (TRUE);
 }

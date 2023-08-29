@@ -74,9 +74,6 @@ UTILS				:=	$(addprefix $(UTILS_DIR), $(UTILS_FILES))
 ###############
 # INGREDIENTS #
 ###############
-LIB					:=	pthread
-
-INC					:=	./inc/
 
 SRCS_DIR			:=	./srcs/
 SRCS				:=	\
@@ -95,12 +92,11 @@ OBJS				:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
 DEPS				:=	$(OBJS:.o=.d)
 
 CC					:=	cc
-CFLAGS				:=	-Wall -Wextra -Werror -pthread -g3
-CPPFLAGS			:=	-MMD
-IFLAGS				:=	$(addprefix -I, $(INC))
-LFLAGS				:=	$(addprefix -l, $(LIB))
+CFLAGS				:=	-Wall -Wextra -Werror -g3
+CPPFLAGS			:=	-MMD -MP
 
 RM					:=	rm -r -f
+MAKEFLAGS			+=	--no-print-directory
 DIR_DUP				=	mkdir -p $(@D)
 
 ##########
@@ -117,29 +113,22 @@ RESET				:=	\033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
-	@$(CC) $(CFLAGS) $(CPPFLAGS) $(LFLAGS) $(OBJS) -o $(NAME)
-	# @$(CC) $(CFLAGS) $(CPPFLAGS) $(LFLAGS) $(OBJS) -o $@ $^
-	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
+	$(CC) $(OBJS) -lpthread -o $(NAME)
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
-	@$(DIR_DUP)
-	@$(CC) $(CFLAGS) $(CPPFLAGS) $(IFLAGS) $(LFLAGS) -c -o $@ $<
+	$(DIR_DUP)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(LFLAGS) -c -o $@ $<
 
 -include $(DEPS)
 
 clean:
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing object files...$(RESET)"
-	@$(RM) $(BUILD_DIR) $(DEPS)
-	@echo "[" "$(GREEN)OK$(RESET)" "] | Object files removed."
+	$(RM) $(BUILD_DIR) $(OBJS) $(DEPS)
 
 fclean: clean
-	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing binary files...$(RESET)"
-	@$(RM) $(NAME)
-	@echo "[" "$(GREEN)OK$(RESET)" "] | binary files removed."
+	$(RM) $(NAME)
 
 re:
-	@$(MAKE) fclean
-	@$(MAKE) all
+	$(MAKE) fclean
+	$(MAKE) all
 
 .PHONY: all clean fclean re

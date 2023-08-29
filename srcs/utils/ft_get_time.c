@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../inc/philo.h"
 #include <time.h>
 
 time_t	ft_get_time(void)

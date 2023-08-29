@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../inc/philo.h"
 
 /*
  * file		:	init.c
@@ -24,11 +24,11 @@ t_bool	ft_init_philosophers(t_philo **philosophers, int nb_philo,
 
 	*philosophers = malloc(nb_philo * sizeof(t_philo));
 	if (!*philosophers)
-		return (print_error(PHILO_ALLOC, NULL, FALSE));
+		return (ft_print_err(PHILO_ALLOC, NULL, FALSE));
 	i = 0;
 	while (i < nb_philo)
 	{
-		init_philo(&(*philosophers)[i], i, diner_setup, config);
+		ft_init_philosophers(&(*philosophers)[i], i, diner_setup, config);
 		i++;
 	}
 	return (TRUE);

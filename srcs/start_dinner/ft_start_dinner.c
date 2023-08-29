@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../inc/philo.h"
 
 /*
  * file		:	launch_diner.c
@@ -28,7 +28,7 @@ t_bool	ft_start_dinner(t_diner *diner_setup, t_philo *philosophers,
 			ft_memdel((void **)&diner_setup->philo_threads);
 		if (diner_setup->philo_monitors)
 			ft_memdel((void **)&diner_setup->philo_monitors);
-		return (print_error(THREAD_ALLOC, NULL, FALSE));
+		return (ft_print_err(THREAD_ALLOC, NULL, FALSE));
 	}
-	return (launch_threads(diner_setup, philosophers, nb_philo));
+	return (ft_start_threads(diner_setup, philosophers, nb_philo));
 }

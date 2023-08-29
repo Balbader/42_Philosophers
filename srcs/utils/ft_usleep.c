@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../inc/philo.h"
 
 void	ft_usleep(time_t usec)
 {
@@ -18,12 +18,12 @@ void	ft_usleep(time_t usec)
 	time_t		elapsed_time;
 	time_t		milliseconds;
 
-	start_time = get_time();
-	elapsed_time = get_time() - start_time;
+	start_time = ft_get_time();
+	elapsed_time = ft_get_time() - start_time;
 	milliseconds = usec / 1000;
 	while (elapsed_time < milliseconds)
 	{
 		usleep((milliseconds - elapsed_time) / 2);
-		elapsed_time = get_time() - start_time;
+		elapsed_time = ft_get_time() - start_time;
 	}
 }

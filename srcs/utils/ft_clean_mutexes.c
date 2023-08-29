@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../inc/philo.h"
 
 void	ft_clean_mutexes(t_mutexes *mutexes, int nb_philo)
 {
 	int		i;
 
-	if (pthread_mutex_destroy(&mutexes->is_speaking) != 0)
+	if (pthread_mutex_destroy(&mutexes->is_thinking) != 0)
 		ft_print_err(MTX_DESTROY, NULL, ERROR);
 	i = 0;
 	while (i < nb_philo)

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../inc/philo.h"
 
 /*
  * file		:	speak.c
@@ -21,7 +21,7 @@ t_bool	ft_is_dead(t_philo *philo, time_t time, char *message)
 {
 	time -= philo->start_time;
 	pthread_mutex_lock(philo->is_thinking);
-	if (!*philo->is_diner_over)
+	if (!*philo->is_dinner_over)
 	{
 		printf("%10lums  %d  %s\n", time, philo->id, message);
 		*philo->is_diner_over = TRUE;

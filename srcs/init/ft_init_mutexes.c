@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../inc/philo.h"
 
 /*
  * file		:	init.c
@@ -19,25 +19,25 @@
 
 t_bool	ft_init_mutexes(t_mutexes *mutexes, int nb_philo)
 {
-	if (pthread_mutex_init(&mutexes->is_speaking, NULL) != 0)
-		return (print_error(MUTEX_INIT, NULL, FALSE));
+	if (pthread_mutex_init(&mutexes->is_thinking, NULL) != 0)
+		return (ft_print_err(MUTEX_INIT, NULL, FALSE));
 	mutexes->forks = malloc(nb_philo * sizeof(pthread_mutex_t));
 	mutexes->is_eating = malloc(nb_philo * sizeof(pthread_mutex_t));
 	if (!mutexes->forks || !mutexes->is_eating)
 	{
-		pthread_mutex_destroy(&mutexes->is_speaking);
+		pthread_mutex_destroy(&mutexes->is_thinking);
 		if (mutexes->forks)
 			free(mutexes->forks);
 		if (mutexes->is_eating)
 			free(mutexes->is_eating);
-		return (print_error(MUTEX_ALLOC, NULL, FALSE));
+		return (ft_print_err(MUTEX_ALLOC, NULL, FALSE));
 	}
-	if (!init_array_mutexes(mutexes->forks, mutexes->is_eating, nb_philo))
+	if (!ft_init_mutexes_arr(mutexes->forks, mutexes->is_eating, nb_philo))
 	{
 		pthread_mutex_destroy(&mutexes->is_speaking);
 		free(mutexes->forks);
 		free(mutexes->is_eating);
-		return (print_error(MUTEX_INIT, NULL, FALSE));
+		return (ft_print_err(MUTEX_INIT, NULL, FALSE));
 	}
 	return (TRUE);
 }

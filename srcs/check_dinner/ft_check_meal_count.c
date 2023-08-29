@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../inc/philo.h"
 #include <sys/time.h>
 
 /*
@@ -24,7 +24,7 @@ void	ft_check_meal_count(t_philo *philosophers, int nb_philo,
 	int			i;
 	t_philo		*philo;
 
-	while (!*philosophers[0].is_diner_over)
+	while (!*philosophers[0].is_dinner_over)
 	{
 		i = 0;
 		while (i < nb_philo)
@@ -35,7 +35,7 @@ void	ft_check_meal_count(t_philo *philosophers, int nb_philo,
 			if ((i + 1) == nb_philo)
 			{
 				ft_is_thinking(philo, ft_get_time(), MIN_NB_MEAL);
-				*philo->is_diner_over = TRUE;
+				*philo->is_dinner_over = TRUE;
 				return ;
 			}
 			i++;

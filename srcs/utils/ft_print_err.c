@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../inc/philo.h"
 
 int	ft_print_err(char *err_msg_1, char *err_msg_2, int ret_val)
 {

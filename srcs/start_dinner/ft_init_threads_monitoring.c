@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../inc/philo.h"
 
 /*
  * file		:	launch_diner.c
@@ -23,7 +23,7 @@ t_bool	ft_init_threads_monitoring(pthread_t *philo_threads,
 	if (pthread_create(&philo_monitors[i], NULL,
 			&monitor_philo, &philosophers[i]) != 0)
 	{
-		*philosophers[0].is_diner_over = TRUE;
+		*philosophers[0].is_dinner_over = TRUE;
 		pthread_join(philo_threads[i], NULL);
 		while (--i >= 0)
 		{

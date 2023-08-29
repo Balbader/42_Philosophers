@@ -10,35 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../inc/philo.h"
 
 /*
  * file		:	diner.c
  * function	:	void *diner(void *arg)
 */
 
-void	*ft_diner(void *arg)
+void	*ft_dinner(void *arg)
 {
 	t_philo			*philo;
 	time_t			time;
-	time_t			speak_delay;
+	time_t			think_delay;
 
 	philo = (t_philo *)arg;
-	while (!*philo->is_diner_over && philo->min_nb_meal != 0)
+	while (!*philo->is_dinner_over && philo->min_nb_meal != 0)
 	{
 		if (philo->min_nb_meal > 0 && philo->nb_meal >= philo->min_nb_meal)
 			ft_usleep(1000);
-		if (!eat(philo))
+		if (!ft_eat(philo))
 			break ;
-		time = get_time();
+		time = ft_get_time();
 		if (philo->nb_meal < INT_MAX)
 			philo->nb_meal++;
-		if (!speak(philo, time, SLEEP))
+		if (!ft_is_thinking(philo, time, SLEEP))
 			break ;
-		speak_delay = get_time() - time;
-		if (!*philo->is_diner_over && speak_delay < philo->time_to_sleep)
-			ft_usleep((philo->time_to_sleep - speak_delay) * 1000);
-		if (!speak(philo, get_time(), THINK))
+		speak_delay = ft_get_time() - time;
+		if (!*philo->is_dinner_over && speak_delay < philo->time_to_sleep)
+			ft_usleep((philo->time_to_sleep - think_delay) * 1000);
+		if (!ft_is_thinking(philo, ft_get_time(), THINK))
 			break ;
 	}
 	return (arg);

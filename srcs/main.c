@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	int			nb_philo;
 	t_config	config;
-	t_dinner		dinner_setup;
+	t_dinner	dinner_setup;
 	t_philo		*philosophers;
 
 	if (!ft_parse_config(ac, av, &config))

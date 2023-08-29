@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTURES_H
+#ifndef STURCTURES_H
 # define STURCTURES_H
 
 # include <pthread.h>
 
 typedef enum e_bool
 {
-	FALSE = 0;
-	TRUE = 1;
-}			t_bool;
+	FALSE = 0,
+	TRUE = 1
+}				t_bool;
 
 typedef struct s_mutexes
 {

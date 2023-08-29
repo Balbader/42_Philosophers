@@ -93,7 +93,6 @@ DEPS				:=	$(OBJS:.o=.d)
 
 CC					:=	cc
 CFLAGS				:=	-Wall -Wextra -Werror -g3
-CPPFLAGS			:=	-MMD -MP
 
 RM					:=	rm -r -f
 MAKEFLAGS			+=	--no-print-directory
@@ -113,11 +112,11 @@ RESET				:=	\033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -lpthread -o $(NAME)
+	$(CC) $(OBJS) -pthread $^ -o $@
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 	$(DIR_DUP)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(LFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS)  -c -o $@ $<
 
 -include $(DEPS)
 

@@ -112,22 +112,28 @@ RESET				:=	\033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -pthread -o $(NAME)
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
+	@$(CC) $(CFLAGS) $(OBJS) -pthread -o $(NAME)
+	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
-	$(DIR_DUP)
-	$(CC) $(CFLAGS)  -c -o $@ $<
+	@$(DIR_DUP)
+	@$(CC) $(CFLAGS)  -c -o $@ $<
 
 -include $(DEPS)
 
 clean:
-	$(RM) $(BUILD_DIR) $(OBJS) $(DEPS)
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing object files...$(RESET)"
+	@$(RM) $(BUILD_DIR) $(OBJS) $(DEPS)
+	@echo "[" "$(GREEN)OK$(RESET)" "] | Object files removed."
 
 fclean: clean
-	$(RM) $(NAME)
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing binary files...$(RESET)"
+	@$(RM) $(NAME)
+	@echo "[" "$(GREEN)OK$(RESET)" "] | Object files removed."
 
 re:
-	$(MAKE) fclean
-	$(MAKE) all
+	@$(MAKE) fclean
+	@$(MAKE) all
 
 .PHONY: all clean fclean re

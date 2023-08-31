@@ -12,11 +12,6 @@
 
 #include "../../inc/philo.h"
 
-/*
- * file		:	init.c
- * function	:	t_bool init_philo
-*/
-
 void	ft_setup_philosophers(t_philo *philo, int i, t_dinner *dinner_setup,
 		t_config *config)
 {

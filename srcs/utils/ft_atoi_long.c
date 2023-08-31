@@ -12,11 +12,6 @@
 
 #include "../../inc/philo.h"
 
-/*
- * file		:	parsing.c
- * function	:	static long ft_atoi_strict(const char *str)
-*/
-
 long	ft_atoi_long(const char *str)
 {
 	int		sign;

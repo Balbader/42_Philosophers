@@ -12,11 +12,6 @@
 
 #include "../../inc/philo.h"
 
-/*
- * file		:	init.c
- * function	:	t_bool init_mutexes
-*/
-
 t_bool	ft_init_mutexes(t_mutexes *mutexes, int nb_philo)
 {
 	if (pthread_mutex_init(&mutexes->is_thinking, NULL) != 0)

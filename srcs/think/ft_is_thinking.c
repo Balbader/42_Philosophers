@@ -12,11 +12,6 @@
 
 #include "../../inc/philo.h"
 
-/*
- * file		:	speak.c
- * function	:	t_bool speak
-*/
-
 t_bool	ft_is_thinking(t_philo *philo, time_t time, char *message)
 {
 	if (ft_strcmp(MIN_NB_MEAL, message)

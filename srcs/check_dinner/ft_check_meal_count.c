@@ -11,12 +11,6 @@
 /* ************************************************************************** */
 
 #include "../../inc/philo.h"
-#include <sys/time.h>
-
-/*
- * file		:	monitor_diner.c
- * function	:	void monitor_nb_meals
-*/
 
 void	ft_check_meal_count(t_philo *philosophers, int nb_philo,
 		int min_nb_meal)

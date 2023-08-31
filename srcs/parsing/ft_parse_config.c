@@ -12,11 +12,6 @@
 
 #include "../../inc/philo.h"
 
-/*
- * file		:	parsing.c
- * function	:	t_bool parse_config
-*/
-
 t_bool	ft_parse_config(int ac, char **av, t_config *config)
 {
 	char	*str;

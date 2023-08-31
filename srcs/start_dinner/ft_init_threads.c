@@ -12,11 +12,6 @@
 
 #include "../../inc/philo.h"
 
-/*
- * file		:	launch_diner.c
- * function	:	static t_bool create_threads
-*/
-
 t_bool	ft_init_threads(pthread_t *philo_threads, pthread_t *philo_monitors,
 		t_philo *philosophers, int i)
 {

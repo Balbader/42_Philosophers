@@ -12,11 +12,6 @@
 
 #include "../../inc/philo.h"
 
-/*
- * file		:	init.c
- * function	:	void init_diner_setup(t_diner *diner_setup);
-*/
-
 void	ft_setup_dinner(t_dinner *dinner_setup)
 {
 	dinner_setup->philo_threads = NULL;

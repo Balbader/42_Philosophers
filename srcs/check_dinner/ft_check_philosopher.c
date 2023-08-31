@@ -12,11 +12,6 @@
 
 #include "../../inc/philo.h"
 
-/*
- * file		:	monitor_diner.c
- * function	:	void monitor_philo
-*/
-
 void	*ft_check_philosopher(void *arg)
 {
 	t_philo		*philo;

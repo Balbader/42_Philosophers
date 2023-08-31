@@ -12,11 +12,6 @@
 
 #include "../../inc/philo.h"
 
-/*
- * file		:	parsing.c
- * function	:	t_bool record_times
-*/
-
 t_bool	ft_parse_times(char **av, t_config *config)
 {
 	static int	i = 2;

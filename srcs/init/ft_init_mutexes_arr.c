@@ -12,11 +12,6 @@
 
 #include "../../inc/philo.h"
 
-/*
- * file		:	init.c
- * function	:	static t_bool init_array_mutexes
-*/
-
 t_bool	ft_init_mutexes_arr(pthread_mutex_t *forks, pthread_mutex_t *is_eating,
 		int nb_philo)
 {

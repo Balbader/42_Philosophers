@@ -12,11 +12,6 @@
 
 #include "../../inc/philo.h"
 
-/*
- * file		:	launch_diner.c
- * function	:	t_bool launch_diner
-*/
-
 t_bool	ft_start_dinner(t_dinner *dinner_setup, t_philo *philosophers,
 		int nb_philo)
 {

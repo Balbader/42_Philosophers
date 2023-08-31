@@ -22,8 +22,8 @@ t_bool	ft_start_threads(t_dinner *diner_setup, t_philo *philosophers,
 	time = ft_get_time();
 	while (i < nb_philo)
 	{
-		philosophers[i].last_meal = time;
 		philosophers[i].start_time = time;
+		philosophers[i].last_meal = time;
 		if (!ft_init_threads(diner_setup->philo_threads,
 				diner_setup->philo_monitors, philosophers, i))
 			return (ft_print_err(THREAD_CREATE, NULL, FALSE));

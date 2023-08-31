@@ -50,7 +50,7 @@ START_DINNER_FILES	:=	\
 						ft_init_threads.c \
 						ft_init_threads_monitoring.c \
 						ft_start_dinner.c \
-						ft_start_threads
+						ft_start_threads.c
 START_DINNER		:=	$(addprefix $(START_DINNER_DIR), $(START_DINNER_FILES))
 
 THINK_DIR			:=	think/

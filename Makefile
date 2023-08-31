@@ -112,8 +112,7 @@ RESET				:=	\033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -pthread $^ -o $@
-	# $(CC) $(CFLAGS) $(OBJS) -pthread -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -pthread -o $(NAME)
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 	$(DIR_DUP)

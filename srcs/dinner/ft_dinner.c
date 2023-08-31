@@ -25,9 +25,9 @@ void	*ft_dinner(void *arg)
 			ft_usleep(1000);
 		if (!ft_eat(philo))
 			break ;
-		time = ft_get_time();
 		if (philo->nb_meal < INT_MAX)
 			philo->nb_meal++;
+		time = ft_get_time();
 		if (!ft_is_thinking(philo, time, SLEEP))
 			break ;
 		think_delay = ft_get_time() - time;

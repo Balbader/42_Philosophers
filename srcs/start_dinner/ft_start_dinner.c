@@ -17,18 +17,18 @@
  * function	:	t_bool launch_diner
 */
 
-t_bool	ft_start_dinner(t_diner *diner_setup, t_philo *philosophers,
+t_bool	ft_start_dinner(t_dinner *dinner_setup, t_philo *philosophers,
 		int nb_philo)
 {
-	diner_setup->philo_threads = malloc(nb_philo * sizeof(pthread_t));
-	diner_setup->philo_monitors = malloc(nb_philo * sizeof(pthread_t));
-	if (!diner_setup->philo_threads || !diner_setup->philo_monitors)
+	dinner_setup->philo_threads = malloc(nb_philo * sizeof(pthread_t));
+	dinner_setup->philo_monitors = malloc(nb_philo * sizeof(pthread_t));
+	if (!dinner_setup->philo_threads || !dinner_setup->philo_monitors)
 	{
-		if (diner_setup->philo_threads)
-			ft_memdel((void **)&diner_setup->philo_threads);
-		if (diner_setup->philo_monitors)
-			ft_memdel((void **)&diner_setup->philo_monitors);
+		if (dinner_setup->philo_threads)
+			ft_memdel((void **)&dinner_setup->philo_threads);
+		if (dinner_setup->philo_monitors)
+			ft_memdel((void **)&dinner_setup->philo_monitors);
 		return (ft_print_err(THREAD_ALLOC, NULL, FALSE));
 	}
-	return (ft_start_threads(diner_setup, philosophers, nb_philo));
+	return (ft_start_threads(dinner_setup, philosophers, nb_philo));
 }

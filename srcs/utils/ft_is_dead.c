@@ -24,7 +24,7 @@ t_bool	ft_is_dead(t_philo *philo, time_t time, char *message)
 	if (!*philo->is_dinner_over)
 	{
 		printf("%10lums  %d  %s\n", time, philo->id, message);
-		*philo->is_diner_over = TRUE;
+		*philo->is_dinner_over = TRUE;
 	}
 	pthread_mutex_unlock(philo->is_thinking);
 	return (FALSE);

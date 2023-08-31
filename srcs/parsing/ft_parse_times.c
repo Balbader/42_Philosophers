@@ -30,7 +30,7 @@ t_bool	ft_parse_times(char **av, t_config *config)
 			return (FALSE);
 		str++;
 	}
-	time = ft_atoi_long(argv[i]);
+	time = ft_atoi_long(av[i]);
 	if (time > INT_MAX)
 		return (FALSE);
 	if (i == 2)

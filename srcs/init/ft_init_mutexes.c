@@ -34,7 +34,7 @@ t_bool	ft_init_mutexes(t_mutexes *mutexes, int nb_philo)
 	}
 	if (!ft_init_mutexes_arr(mutexes->forks, mutexes->is_eating, nb_philo))
 	{
-		pthread_mutex_destroy(&mutexes->is_speaking);
+		pthread_mutex_destroy(&mutexes->is_thinking);
 		free(mutexes->forks);
 		free(mutexes->is_eating);
 		return (ft_print_err(MUTEX_INIT, NULL, FALSE));

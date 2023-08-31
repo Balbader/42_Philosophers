@@ -18,10 +18,10 @@
 */
 
 t_bool	ft_init_threads_monitoring(pthread_t *philo_threads,
-			pthread_t *philo_monitor, t_philo *philosophers, int i)
+			pthread_t *philo_monitors, t_philo *philosophers, int i)
 {
 	if (pthread_create(&philo_monitors[i], NULL,
-			&monitor_philo, &philosophers[i]) != 0)
+			&ft_check_philosopher, &philosophers[i]) != 0)
 	{
 		*philosophers[0].is_dinner_over = TRUE;
 		pthread_join(philo_threads[i], NULL);

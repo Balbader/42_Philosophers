@@ -17,9 +17,9 @@
  * function	:	void init_diner_setup(t_diner *diner_setup);
 */
 
-void	ft_setup_dinner(t_diner *dinner_setup)
+void	ft_setup_dinner(t_dinner *dinner_setup)
 {
-	diner_setup->philo_threads = NULL;
-	diner_setup->philo_monitors = NULL;
-	diner_setup->is_dinner_over = FALSE;
+	dinner_setup->philo_threads = NULL;
+	dinner_setup->philo_monitors = NULL;
+	dinner_setup->is_dinner_over = FALSE;
 }

@@ -12,7 +12,7 @@
 
 #include "../../inc/philo.h"
 
-int	ft_clean_exit(t_diner *diner_setup, t_philo *philosophers,
+int	ft_clean_exit(t_dinner *dinner_setup, t_philo *philosophers,
 		int nb_philo, int ret_val)
 {
 	int		i;
@@ -26,7 +26,7 @@ int	ft_clean_exit(t_diner *diner_setup, t_philo *philosophers,
 			pthread_join(dinner_setup->philo_monitors[i++], NULL);
 		}
 	}
-	clean_mutexes(&dinner_setup->mutexes, nb_philo);
+	ft_clean_mutexes(&dinner_setup->mutexes, nb_philo);
 	if (dinner_setup->philo_threads)
 		free(dinner_setup->philo_threads);
 	if (dinner_setup->philo_monitors)

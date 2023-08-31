@@ -18,7 +18,7 @@
 */
 
 t_bool	ft_init_philosophers(t_philo **philosophers, int nb_philo,
-		t_diner *diner_setup, t_config *config)
+		t_dinner *dinner_setup, t_config *config)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ t_bool	ft_init_philosophers(t_philo **philosophers, int nb_philo,
 	i = 0;
 	while (i < nb_philo)
 	{
-		ft_init_philosophers(&(*philosophers)[i], i, diner_setup, config);
+		ft_setup_philosophers(&(*philosophers)[i], i, dinner_setup, config);
 		i++;
 	}
 	return (TRUE);

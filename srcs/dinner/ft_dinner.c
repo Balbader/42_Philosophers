@@ -35,8 +35,8 @@ void	*ft_dinner(void *arg)
 			philo->nb_meal++;
 		if (!ft_is_thinking(philo, time, SLEEP))
 			break ;
-		speak_delay = ft_get_time() - time;
-		if (!*philo->is_dinner_over && speak_delay < philo->time_to_sleep)
+		think_delay = ft_get_time() - time;
+		if (!*philo->is_dinner_over && think_delay < philo->time_to_sleep)
 			ft_usleep((philo->time_to_sleep - think_delay) * 1000);
 		if (!ft_is_thinking(philo, ft_get_time(), THINK))
 			break ;

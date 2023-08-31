@@ -21,7 +21,7 @@ NAME				:=	philo
 CHECK_DINNER_DIR	:=	check_dinner/
 CHECK_DINNER_FILES	:=	\
 						ft_check_meal_count.c \
-						ft_check_philosophers.c
+						ft_check_philosopher.c
 CHECK_DINNER		:= 	$(addprefix $(CHECK_DINNER_DIR), $(CHECK_DINNER_FILES))
 
 DINNER_DIR			:=	dinner/
@@ -112,8 +112,8 @@ RESET				:=	\033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	# $(CC) $(OBJS) -pthread $^ -o $@
-	$(CC) $(CFLAGS) $(OBJS) -pthread -o $(NAME)
+	$(CC) $(OBJS) -pthread $^ -o $@
+	# $(CC) $(CFLAGS) $(OBJS) -pthread -o $(NAME)
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c
 	$(DIR_DUP)

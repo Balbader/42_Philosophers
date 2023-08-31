@@ -28,7 +28,7 @@ int		main(int ac, char **av);
 
 // Parsing
 t_bool	ft_parse_config(int ac, char **av, t_config *config);
-t_bool	ft_record_times(char **av, t_config *config);
+t_bool	ft_parse_times(char **av, t_config *config);
 
 // Init
 t_bool	ft_init_mutexes_arr(pthread_mutex_t *forks, pthread_mutex_t *is_eating,
@@ -41,7 +41,7 @@ void	ft_setup_philosophers(t_philo *philo, int i, t_dinner *dinner_setup,
 
 // Start Dinner
 t_bool	ft_init_threads_monitoring(pthread_t *philo_threads,
-			pthread_t *philo_monitor, t_philo *philosophers, int i);
+			pthread_t *philo_monitors, t_philo *philosophers, int i);
 t_bool	ft_init_threads(pthread_t *philo_threads, pthread_t *philo_monitors,
 			t_philo *philosophers, int i);
 t_bool	ft_start_threads(t_dinner *dinner_setup, t_philo *phlosophers,

@@ -23,7 +23,7 @@ typedef enum e_bool
 
 typedef struct s_mutexes
 {
-	pthread_mutex_t		is_thinkinging;
+	pthread_mutex_t		is_thinking;
 	pthread_mutex_t		*forks;
 	pthread_mutex_t		*is_eating;
 }				t_mutexes;

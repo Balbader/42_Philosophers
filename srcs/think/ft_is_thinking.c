@@ -17,8 +17,8 @@ t_bool	ft_is_thinking(t_philo *philo, time_t time, char *message)
 	if (ft_strcmp(MIN_NB_MEAL, message)
 		&& (time - philo->last_meal) > philo->time_to_die)
 		return (FALSE);
-	time -= philo->start_time;
 	pthread_mutex_lock(philo->is_thinking);
+	time -= philo->start_time;
 	if (!ft_strcmp(MIN_NB_MEAL, message) && !*philo->is_dinner_over)
 	{
 		*philo->is_dinner_over = TRUE;

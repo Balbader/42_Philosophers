@@ -60,7 +60,7 @@ void	ft_check_meal_count(t_philo *philosophers, int nb_philo,
 void	*ft_check_philosopher(void *arg);
 
 // Think
-t_bool	ft_is_thinking(t_philo *philo, time_t time, char *message);
+t_bool	ft_print_state(t_philo *philo, time_t time, char *message);
 
 // Utils
 int		ft_strcmp(const char *s1, const char *s2);

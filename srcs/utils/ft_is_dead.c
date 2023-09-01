@@ -12,10 +12,6 @@
 
 #include "../../inc/philo.h"
 
-/*
- * 
-*/
-
 t_bool	ft_is_dead(t_philo *philo, time_t time, char *message)
 {
 	time -= philo->start_time;

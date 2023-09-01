@@ -18,9 +18,9 @@ void	ft_check_meal_count(t_philo *philosophers, int nb_philo,
 	int			i;
 	t_philo		*philo;
 
-	while (!*philosophers[0].is_dinner_over)
+	i = 0;
+	while (!*philosophers[i].is_dinner_over)
 	{
-		i = 0;
 		while (i < nb_philo)
 		{
 			philo = &philosophers[i];
@@ -28,7 +28,7 @@ void	ft_check_meal_count(t_philo *philosophers, int nb_philo,
 				break ;
 			if ((i + 1) == nb_philo)
 			{
-				ft_print_state(philo, ft_get_time(), MIN_NB_MEAL);
+				ft_print_state(philo, ft_get_time(), LEAST_NB_MEAL);
 				*philo->is_dinner_over = TRUE;
 				return ;
 			}

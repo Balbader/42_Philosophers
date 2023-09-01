@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_setup_dinner.c                                  :+:      :+:    :+:   */
+/*   ft_manage_lock.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baalbade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/26 11:56:27 by baalbade          #+#    #+#             */
-/*   Updated: 2023/08/26 11:56:29 by baalbade         ###   ########.fr       */
+/*   Created: 2023/09/01 14:36:40 by baalbade          #+#    #+#             */
+/*   Updated: 2023/09/01 14:37:00 by baalbade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/philo.h"
 
-
-void	ft_setup_dinner(t_dinner *dinner_setup)
+int	ft_manage_lock(t_philo *philo)
 {
-	dinner_setup->philo_threads = NULL;
-	dinner_setup->philo_monitors = NULL;
-	dinner_setup->is_dinner_over = FALSE;
+	t_bool	*is_the_philo_done;
+
+	pthread_mutex_lock(philo->is_thinking);
+	is_the_philo_done = philo->is_dinner_over;
+	pthread_mutex_unlock(philo->is_thinking);
+	return (*is_the_philo_done);
 }

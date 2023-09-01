@@ -28,10 +28,11 @@ void	*ft_check_philosopher(void *arg)
 			if (philo->min_nb_meal >= 0 && philo->nb_meal == philo->min_nb_meal)
 				ft_usleep(1000);
 			if (!*philo->is_dinner_over)
-				ft_is_dead(philo, time, "died!");
+					ft_is_dead(philo, time, DIED);
 		}
 		pthread_mutex_unlock(philo->is_eating);
-		if (!*philo->is_dinner_over)
+		// if (!*philo->is_dinner_over)
+		if (ft_manage_lock(philo))
 			ft_usleep(1000);
 	}
 	return (arg);

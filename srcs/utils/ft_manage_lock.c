@@ -14,10 +14,12 @@
 
 int	ft_manage_lock(t_philo *philo)
 {
-	t_bool	*is_the_philo_done;
-
 	pthread_mutex_lock(philo->is_thinking);
-	is_the_philo_done = philo->is_dinner_over;
+	if (!*philo->is_dinner_over)
+	{
+		pthread_mutex_unlock(philo->is_thinking);
+		return (0);
+	}
 	pthread_mutex_unlock(philo->is_thinking);
-	return (*is_the_philo_done);
+	return (1);
 }

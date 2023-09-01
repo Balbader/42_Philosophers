@@ -41,5 +41,6 @@ t_bool	ft_eat(t_philo *philo)
 	pthread_mutex_unlock(&philo->forks[philo->fork_left]);
 	pthread_mutex_unlock(&philo->forks[philo->fork_right]);
 	pthread_mutex_unlock(philo->is_eating);
-	return (!*philo->is_dinner_over);
+	// return (!*philo->is_dinner_over);
+	return (ft_manage_lock(philo));
 }

@@ -22,7 +22,8 @@
 t_bool	ft_init_threads(pthread_t *philo_threads, pthread_t *philo_monitors,
 		t_philo *philosophers, int i)
 {
-	if (pthread_create(&philo_threads[i], NULL, &ft_dinner, &philosophers[i]) != 0)
+	if (pthread_create(&philo_threads[i], NULL, &ft_dinner,
+			&philosophers[i]) != 0)
 	{
 		*philosophers[0].is_dinner_over = TRUE;
 		while (--i >= 0)

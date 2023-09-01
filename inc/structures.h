@@ -6,12 +6,12 @@
 /*   By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 09:36:43 by baalbade          #+#    #+#             */
-/*   Updated: 2023/08/26 09:36:46 by baalbade         ###   ########.fr       */
+/*   Updated: 2023/09/01 12:05:48 by baalbade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STURCTURES_H
-# define STURCTURES_H
+#ifndef STRUCTURES_H
+# define STRUCTURES_H
 
 # include <pthread.h>
 
@@ -64,4 +64,4 @@ typedef struct s_philo
 	pthread_mutex_t		*is_eating;
 }				t_philo;
 
-#endif
+#endif // !STURCTURES_H

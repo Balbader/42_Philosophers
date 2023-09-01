@@ -21,8 +21,6 @@ void	*thread(void *arg)
 		usleep(1000);
 	while (is_dead(philo) != DEATH && philo->data->meals[philo->number - 1] > 0)
 	{	
-		pthread_mutex_lock(&philo->data->print_mutex);
-		pthread_mutex_unlock(&philo->data->print_mutex);
 		if (eat(&philo) == DEATH || mysleep(philo) == DEATH)
 			return (NULL);
 	}

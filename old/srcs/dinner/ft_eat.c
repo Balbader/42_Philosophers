@@ -28,7 +28,7 @@ t_bool	ft_eat(t_philo *philo)
 		return (FALSE);
 	}
 	pthread_mutex_lock(&philo->forks[philo->fork_right]);
-	pthread_mutex_lock(philo->is_eating);
+	pthread_mutex_lock(philo->is_thinking);
 	time = ft_get_time();
 	if ((time - philo->last_meal) > philo->time_to_die)
 		ft_is_dead(philo, time, DIED);
@@ -40,7 +40,7 @@ t_bool	ft_eat(t_philo *philo)
 		ft_usleep((philo->time_to_eat - think_delay) * 1000);
 	pthread_mutex_unlock(&philo->forks[philo->fork_left]);
 	pthread_mutex_unlock(&philo->forks[philo->fork_right]);
-	pthread_mutex_unlock(philo->is_eating);
+	pthread_mutex_unlock(philo->is_thinking);
 	return (!*philo->is_dinner_over);
 	//return (ft_manage_lock(philo));
 }

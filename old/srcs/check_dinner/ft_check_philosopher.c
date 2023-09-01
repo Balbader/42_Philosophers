@@ -20,7 +20,7 @@ void	*ft_check_philosopher(void *arg)
 	philo = (t_philo *)arg;
 	while (!*philo->is_dinner_over)
 	{
-		pthread_mutex_lock(philo->is_eating);
+		pthread_mutex_lock(philo->is_thinking);
 		time = ft_get_time();
 		if (!*philo->is_dinner_over
 			&& (time - philo->last_meal) > philo->time_to_die)
@@ -30,7 +30,7 @@ void	*ft_check_philosopher(void *arg)
 			if (!*philo->is_dinner_over)
 					ft_is_dead(philo, time, DIED);
 		}
-		pthread_mutex_unlock(philo->is_eating);
+		pthread_mutex_unlock(philo->is_thinking);
 		if (!*philo->is_dinner_over)
 		//if (ft_manage_lock(philo))
 			ft_usleep(1000);

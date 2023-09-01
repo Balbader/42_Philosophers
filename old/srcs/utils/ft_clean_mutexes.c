@@ -26,9 +26,9 @@ void	ft_clean_mutexes(t_mutexes *mutexes, int nb_philo)
 	{
 		if (pthread_mutex_destroy(&mutexes->forks[i]) != 0)
 			ft_print_err(MUTEX_DESTROY, NULL, ERROR);
-		if (pthread_mutex_destroy(&mutexes->is_eating[i++]) != 0)
+		if (pthread_mutex_destroy(&mutexes->is_thinking[i++]) != 0)
 			ft_print_err(MUTEX_DESTROY, NULL, ERROR);
 	}
 	free(mutexes->forks);
-	free(mutexes->is_eating);
+	free(mutexes->is_thinking);
 }

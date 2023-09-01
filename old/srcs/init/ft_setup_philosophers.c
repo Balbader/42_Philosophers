@@ -32,7 +32,7 @@ void	ft_setup_philosophers(t_philo *philo, int i, t_dinner *dinner_setup,
 	philo->time_to_sleep = config->time_to_sleep;
 	philo->is_thinking = &mutexes->is_thinking;
 	philo->forks = mutexes->forks;
-	philo->is_eating = &mutexes->is_eating[i];
+	philo->is_thinking = &mutexes->is_thinking;
 	philo->nb_forks = config->nb_philo;
 	philo->fork_left = i;
 	philo->fork_right = (i + 1) % nb_philo;

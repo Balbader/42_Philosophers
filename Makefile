@@ -60,6 +60,7 @@ UTILS_FILES			:=	\
 						ft_clean_mutexes.c \
 						ft_get_time.c \
 						ft_is_dead.c \
+						ft_manage_lock.c \
 						ft_memdel.c \
 						ft_print_err.c \
 						ft_print_state.c \

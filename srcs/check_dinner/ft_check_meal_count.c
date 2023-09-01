@@ -32,7 +32,7 @@ void	ft_check_meal_count(t_philo *philosophers, int nb_philo,
 				break ;
 			if ((i + 1) == nb_philo)
 			{
-				ft_is_thinking(philo, ft_get_time(), MIN_NB_MEAL);
+				ft_print_state(philo, ft_get_time(), MIN_NB_MEAL);
 				*philo->is_dinner_over = TRUE;
 				return ;
 			}

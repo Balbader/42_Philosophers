@@ -39,7 +39,7 @@ t_bool	ft_eat(t_philo *philo)
 	time_t		think_delay;
 
 	pthread_mutex_lock(&philo->forks[philo->fork_left]);
-	if (!ft_is_thinking(philo, ft_get_time(), FORK) || philo->nb_forks == 1)
+	if (!ft_print_state(philo, ft_get_time(), FORK) || philo->nb_forks == 1)
 	{
 		pthread_mutex_unlock(&philo->forks[philo->fork_left]);
 		return (FALSE);
@@ -50,7 +50,7 @@ t_bool	ft_eat(t_philo *philo)
 	if ((time - philo->last_meal) > philo->time_to_die)
 		ft_is_dead(philo, time, DIE);
 	else
-		ft_is_thinking(philo, time, EAT);
+		ft_print_state(philo, time, EAT);
 	philo->last_meal = time;
 	think_delay = ft_get_time() - time;
 	if (!*philo->is_dinner_over && think_delay < philo->time_to_eat)

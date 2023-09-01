@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_dead.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/26 11:16:22 by baalbade          #+#    #+#             */
-/*   Updated: 2023/08/26 11:16:25 by baalbade         ###   ########.fr       */
+/*   Created: 2023/08/26 11:16:37 by baalbade          #+#    #+#             */
+/*   Updated: 2023/08/26 11:16:39 by baalbade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/philo.h"
 
-t_bool	ft_is_dead(t_philo *philo, time_t time, char *message)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	pthread_mutex_lock(philo->is_thinking);
-	time -= philo->start_time;
-	if (!*philo->is_dinner_over)
+	while (*s1 && *s2 && (*s1 == *s2))
 	{
-		printf("%10lums  %d  %s\n", time, philo->id, message);
-		*philo->is_dinner_over = TRUE;
+		s1++;
+		s2++;
 	}
-	pthread_mutex_unlock(philo->is_thinking);
-	return (FALSE);
+	return ((int)((unsigned char)*s1 - (unsigned char)*s2));
 }

@@ -28,7 +28,7 @@ INC=$(addprefix ${INC_DIR}, ${INC_FILES})
 OBJ=${SRC:.c=.o}
 
 CC=cc
-CFLAGS=-g3 -Wall -Wextra -Werror
+CFLAGS=-g3 -Wall -Wextra -Werror -fsanitize=thread
 RM=rm -rf
 
 all: ${NAME}

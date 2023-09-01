@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_dead.c                                       :+:      :+:    :+:   */
+/*   ft_check_meal_count.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/26 11:16:22 by baalbade          #+#    #+#             */
-/*   Updated: 2023/08/26 11:16:25 by baalbade         ###   ########.fr       */
+/*   Created: 2023/08/26 16:24:00 by baalbade          #+#    #+#             */
+/*   Updated: 2023/08/26 16:24:05 by baalbade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/philo.h"
 
-t_bool	ft_is_dead(t_philo *philo, time_t time, char *message)
+void	ft_check_meal_count(t_philo *philosophers, int nb_philo,
+		int min_nb_meal)
 {
-	pthread_mutex_lock(philo->is_thinking);
-	time -= philo->start_time;
-	if (!*philo->is_dinner_over)
+	int			i;
+	t_philo		*philo;
+
+	i = 0;
+	while (!*philosophers[i].is_dinner_over)
 	{
-		printf("%10lums  %d  %s\n", time, philo->id, message);
-		*philo->is_dinner_over = TRUE;
+		while (i < nb_philo)
+		{
+			philo = &philosophers[i];
+			if (philo->nb_meal < min_nb_meal)
+				break ;
+			if ((i + 1) == nb_philo)
+			{
+				ft_print_state(philo, ft_get_time(), LEAST_NB_MEAL);
+				*philo->is_dinner_over = TRUE;
+				return ;
+			}
+			i++;
+		}
+		ft_usleep(1000);
 	}
-	pthread_mutex_unlock(philo->is_thinking);
-	return (FALSE);
 }

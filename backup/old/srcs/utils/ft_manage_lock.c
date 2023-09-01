@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_dead.c                                       :+:      :+:    :+:   */
+/*   ft_manage_lock.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: baalbade <baalbade@student.42.fr>          +#+  +:+       +#+        */
+/*   By: baalbade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/26 11:16:22 by baalbade          #+#    #+#             */
-/*   Updated: 2023/08/26 11:16:25 by baalbade         ###   ########.fr       */
+/*   Created: 2023/09/01 14:36:40 by baalbade          #+#    #+#             */
+/*   Updated: 2023/09/01 14:37:00 by baalbade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/philo.h"
 
-t_bool	ft_is_dead(t_philo *philo, time_t time, char *message)
+int	ft_manage_lock(t_philo *philo)
 {
 	pthread_mutex_lock(philo->is_thinking);
-	time -= philo->start_time;
 	if (!*philo->is_dinner_over)
 	{
-		printf("%10lums  %d  %s\n", time, philo->id, message);
-		*philo->is_dinner_over = TRUE;
+		pthread_mutex_unlock(philo->is_thinking);
+		return (0);
 	}
 	pthread_mutex_unlock(philo->is_thinking);
-	return (FALSE);
+	return (1);
 }

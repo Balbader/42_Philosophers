@@ -67,6 +67,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_print_err(char *err_msg_1, char *err_msg_2, int ret_val);
 int		ft_clean_exit(t_dinner *dinner_setup, t_philo *philosophers,
 			int nb_philo, int ret_val);
+int		ft_manage_lock(t_philo *philo);
 long	ft_atoi_long(const char *str);
 void	ft_clean_mutexes(t_mutexes *mutexes, int nb_philo);
 void	ft_putstr_fd(char *s, int fd);

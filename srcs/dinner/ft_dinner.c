@@ -32,12 +32,12 @@ void	*ft_dinner(void *arg)
 		if (philo->nb_meal < INT_MAX)
 			philo->nb_meal++;
 		time = ft_get_time();
-		if (!ft_is_thinking(philo, time, SLEEP))
+		if (!ft_print_state(philo, time, SLEEP))
 			break ;
 		think_delay = ft_get_time() - time;
 		if (!*philo->is_dinner_over && think_delay < philo->time_to_sleep)
 			ft_usleep((philo->time_to_sleep - think_delay) * 1000);
-		if (!ft_is_thinking(philo, ft_get_time(), THINK))
+		if (!ft_print_state(philo, ft_get_time(), THINK))
 			break ;
 	}
 	return (arg);

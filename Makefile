@@ -53,10 +53,6 @@ START_DINNER_FILES	:=	\
 						ft_start_threads.c
 START_DINNER		:=	$(addprefix $(START_DINNER_DIR), $(START_DINNER_FILES))
 
-THINK_DIR			:=	think/
-THINK_FILES			:=	ft_is_thinking.c
-THINK				:=	$(addprefix $(THINK_DIR), $(THINK_FILES))
-
 UTILS_DIR			:=	utils/
 UTILS_FILES			:=	\
 						ft_atoi_long.c \
@@ -66,6 +62,7 @@ UTILS_FILES			:=	\
 						ft_is_dead.c \
 						ft_memdel.c \
 						ft_print_err.c \
+						ft_print_state.c \
 						ft_putstr_fd.c \
 						ft_strcmp.c \
 						ft_usleep.c
@@ -82,7 +79,6 @@ SRCS				:=	\
 						$(INIT) \
 						$(PARSING) \
 						$(START_DINNER) \
-						$(THINK) \
 						$(UTILS) \
 						main.c
 SRCS				:=	$(SRCS:%=$(SRCS_DIR)/%)

@@ -12,6 +12,10 @@
 
 #include "../../inc/philo.h"
 
+/*
+ *
+*/
+
 void	*ft_dinner(void *arg)
 {
 	t_philo			*philo;

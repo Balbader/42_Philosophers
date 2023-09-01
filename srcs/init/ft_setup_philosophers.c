@@ -12,6 +12,10 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * Setup each thread / philosopher
+ */
+
 void	ft_setup_philosophers(t_philo *philo, int i, t_dinner *dinner_setup,
 		t_config *config)
 {

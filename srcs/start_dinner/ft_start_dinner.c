@@ -12,6 +12,12 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * allocates memory to pthread threads and monitors
+ * if allocation is unsuccessful, frees allocated memory / returns False
+ * if successful, will start running the threads
+*/
+
 t_bool	ft_start_dinner(t_dinner *dinner_setup, t_philo *philosophers,
 		int nb_philo)
 {

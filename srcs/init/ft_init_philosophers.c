@@ -12,6 +12,13 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * Setup each thread / philosopher
+ * allocates memory + setup philosopher config
+ * returns True if successful
+ * returns False if unsuccessful
+ */
+
 t_bool	ft_init_philosophers(t_philo **philosophers, int nb_philo,
 		t_dinner *dinner_setup, t_config *config)
 {

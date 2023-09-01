@@ -12,6 +12,10 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * Waits for threads to be joined and free allocated memory
+*/
+
 int	ft_clean_exit(t_dinner *dinner_setup, t_philo *philosophers,
 		int nb_philo, int ret_val)
 {

@@ -12,6 +12,13 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * Checks if the created thread is still running
+ * if Yes returns True
+ * else will will nullyphy all threads, and free all memory allocated
+ * returns False
+*/
+
 t_bool	ft_init_threads_monitoring(pthread_t *philo_threads,
 			pthread_t *philo_monitors, t_philo *philosophers, int i)
 {

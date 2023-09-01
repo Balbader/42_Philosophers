@@ -12,7 +12,13 @@
 
 #include "../../inc/philo.h"
 
-t_bool	ft_start_threads(t_dinner *diner_setup, t_philo *philosophers,
+/*
+ * starts the simulation
+ * returns True if the launch was successful
+ * returns False if the initialization of the threads was unsuccessful
+*/
+
+t_bool	ft_start_threads(t_dinner *dinner_setup, t_philo *philosophers,
 		int nb_philo)
 {
 	int			i;
@@ -24,8 +30,8 @@ t_bool	ft_start_threads(t_dinner *diner_setup, t_philo *philosophers,
 	{
 		philosophers[i].start_time = time;
 		philosophers[i].last_meal = time;
-		if (!ft_init_threads(diner_setup->philo_threads,
-				diner_setup->philo_monitors, philosophers, i))
+		if (!ft_init_threads(dinner_setup->philo_threads,
+				dinner_setup->philo_monitors, philosophers, i))
 			return (ft_print_err(THREAD_CREATE, NULL, FALSE));
 		i += 2;
 		if (i % 2 == 0 && i >= nb_philo)

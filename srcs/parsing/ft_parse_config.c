@@ -12,6 +12,14 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * Parse and assign the given data to run the simulation for :
+ * nb of philo
+ * nb of meals
+ * returns True is parsing and assignment are successful
+ * returns False if not
+*/
+
 t_bool	ft_parse_config(int ac, char **av, t_config *config)
 {
 	char	*str;

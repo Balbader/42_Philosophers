@@ -12,6 +12,12 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * initiate mutexes for for errors accountability (forks, eating)
+ * returns True if successful
+ * if unsuccessful, destroys mutexes / return False
+*/
+
 t_bool	ft_init_mutexes_arr(pthread_mutex_t *forks, pthread_mutex_t *is_eating,
 		int nb_philo)
 {

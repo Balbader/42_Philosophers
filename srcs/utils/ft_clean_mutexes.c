@@ -12,6 +12,9 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * Destroy all mutexes and free allocated memory
+*/
 void	ft_clean_mutexes(t_mutexes *mutexes, int nb_philo)
 {
 	int		i;

@@ -12,6 +12,12 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * Allocates memory and initializes fork mutexes
+ * returns True is successful
+ * if unsuccessful, destroys mutexes and free allocated memory / returns False
+ */
+
 t_bool	ft_init_mutexes(t_mutexes *mutexes, int nb_philo)
 {
 	if (pthread_mutex_init(&mutexes->is_thinking, NULL) != 0)

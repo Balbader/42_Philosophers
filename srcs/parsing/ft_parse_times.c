@@ -12,6 +12,17 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * Parse and assign the given data to run the simulation for :
+ * time to die
+ * time to eat
+ * time to sleep
+ * will check if the given argument is a nb
+ * will check if the time argument is < int max
+ * returns True is parsing and assignment are successful
+ * returns False if not
+*/
+
 t_bool	ft_parse_times(char **av, t_config *config)
 {
 	static int	i = 2;

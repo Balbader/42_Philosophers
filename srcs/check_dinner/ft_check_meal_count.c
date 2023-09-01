@@ -12,10 +12,6 @@
 
 #include "../../inc/philo.h"
 
-/*
- *  
-*/
-
 void	ft_check_meal_count(t_philo *philosophers, int nb_philo,
 		int min_nb_meal)
 {

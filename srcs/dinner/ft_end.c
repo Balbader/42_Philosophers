@@ -12,7 +12,7 @@
 
 #include "../../inc/philo.h"
 
-void	t_end(t_rules *r, int i, int state)
+void	ft_end(t_rules *r, int i, int state)
 {
 	int	full_philos;
 
@@ -20,7 +20,7 @@ void	t_end(t_rules *r, int i, int state)
 	while (1)
 	{
 		i = 0;
-		if (check_health(r) == 0)
+		if (ft_check_health(r) == 0)
 			break ;
 		while (i < r->nb_philo)
 		{

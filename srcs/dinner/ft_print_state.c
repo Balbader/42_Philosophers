@@ -15,7 +15,7 @@
 void	ft_print_state(t_philo *p, t_rules *r, char *action)
 {
 	pthread_mutex_lock(&(r->printing));
-	if (check_health(r) == 0 && action[0] != 'd')
+	if (ft_check_health(r) == 0 && action[0] != 'd')
 	{
 		pthread_mutex_unlock(&(r->printing));
 		return ;

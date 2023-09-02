@@ -16,12 +16,3 @@ unsigned long	ft_time_diff(unsigned long a, unsigned long b)
 {
 	return (a - b);
 }
-
-void	isleep(unsigned long ms)
-{
-	unsigned long	t;
-
-	t = get_time();
-	while (time_diff(get_time(), t) < ms)
-		usleep(50);
-}

@@ -12,6 +12,13 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * initiate the mutexes for:
+ * . forks
+ * . printing
+ * . health_check
+*/
+
 int	ft_init_mutex(t_config *conf)
 {
 	int	i;

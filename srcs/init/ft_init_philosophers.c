@@ -12,6 +12,10 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * initiate the configuration of each philosopher
+*/
+
 int	ft_init_philosophers(t_config *conf)
 {
 	int	i;
@@ -26,9 +30,9 @@ int	ft_init_philosophers(t_config *conf)
 		else
 			conf->philos[i].left_fork_idx = -1;
 		conf->philos[i].last_meal = 0;
-		conf->philos[i].nb_meal = 0;
+		conf->philos[i].meal_count = 0;
 		conf->philos[i].config = conf;
-		conf->philos[i].hunger = 1;
+		conf->philos[i].hungry = 1;
 		i++;
 	}
 	return (0);

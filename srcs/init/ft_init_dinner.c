@@ -12,6 +12,10 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * initiate the configuration data that will allow the simulation to run
+*/
+
 int	ft_init_dinner(t_config *conf, char **av)
 {
 	conf->nb_philo = ft_atoi(av[1]);
@@ -25,12 +29,12 @@ int	ft_init_dinner(t_config *conf, char **av)
 		ft_putstr_fd(ARG_ERR, 2);
 	if (av[5])
 	{
-		conf->x_meal = ft_atoi(av[5]);
-		if (conf->x_meal <= 0)
+		conf->tot_meals = ft_atoi(av[5]);
+		if (conf->tot_meals <= 0)
 			ft_putstr_fd(MEAL_ERR, 2);
 	}
 	else
-		conf->x_meal = -1;
+		conf->tot_meals = -1;
 	if (ft_init_mutex(conf))
 		return (1);
 	if (ft_init_philosophers(conf))

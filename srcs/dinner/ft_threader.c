@@ -20,13 +20,15 @@ void	*ft_threader(void *void_philo)
 {
 	t_philo		*philo;
 	t_config	*conf;
+	int			temp_fork;
 
+	temp_fork = 0;
 	philo = (t_philo *)void_philo;
 	conf = philo->config;
 	if (conf->nb_philo == 1)
 		return (ft_philo_alone(conf, philo));
 	if (philo->id % 2 == 0)
-		ft_usleep(conf->time_to_eat);
+		ft_usleep(conf->time_to_sleep);
 	while (1)
 	{
 		if (ft_check_health(conf) == 0)

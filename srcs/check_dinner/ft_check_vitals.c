@@ -20,7 +20,7 @@ int	ft_check_vitals(t_rules *r, int i)
 	{
 		r->dead_end = 1;
 		pthread_mutex_unlock(&(r->health_check));
-		print_action(&(r->philos[i]), r, "died");
+		ft_print_state(&(r->philos[i]), r, "died");
 		return (1);
 	}
 	else if (r->x_meal > 0 && r->philos[i].hunger == 1)

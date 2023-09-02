@@ -12,6 +12,9 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * 
+*/
 int	ft_check_vitals(t_rules *r, int i)
 {
 	pthread_mutex_lock(&(r->health_check));
@@ -20,7 +23,7 @@ int	ft_check_vitals(t_rules *r, int i)
 	{
 		r->dead_end = 1;
 		pthread_mutex_unlock(&(r->health_check));
-		ft_print_state(&(r->philos[i]), r, "died");
+		ft_print_state(&(r->philos[i]), r, DIED);
 		return (1);
 	}
 	else if (r->x_meal > 0 && r->philos[i].hunger == 1)

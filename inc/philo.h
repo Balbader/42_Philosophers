@@ -22,12 +22,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-// utils
-int				ft_atoi(const char *nptr);
-int				ft_strcmp(const char *s1, const char *s2);
-int				ft_is_num(char *arg);
-char			*ft_itoa(int n);
-void			*ft_calloc(size_t nmemb, size_t size);
+// destroy
+int				ft_destroy_mutexes(t_rules *r);
 
 // parsing
 int				ft_check_args(int ac, char **av);
@@ -39,10 +35,7 @@ int				ft_init_mutex(t_rules *rules);
 int				ft_init_philosophers(t_rules *rules);
 
 // SIM UTILS
-unsigned long	get_time(void);
 void			print_action(t_philo *p, t_rules *r, char *s);
-void			isleep(unsigned long ms);
-unsigned long	time_diff(unsigned long a, unsigned long b);
 int				check_health(t_rules *r);
 void			print_action(t_philo *p, t_rules *r, char *s);
 void			handle_eat(t_rules *r, t_philo *p);
@@ -50,7 +43,16 @@ void			handle_eat(t_rules *r, t_philo *p);
 // SIM
 int				launch_sim(t_rules *rules);
 
-// destroy
-int				ft_destroy_mutexes(t_rules *r);
+// time
+void			ft_usleep(unsigned long ms);
+unsigned long	ft_get_time(void);
+unsigned long	ft_time_diff(unsigned long a, unsigned long b);
+
+// utils
+int				ft_atoi(const char *nptr);
+int				ft_strcmp(const char *s1, const char *s2);
+int				ft_is_num(char *arg);
+char			*ft_itoa(int n);
+void			*ft_calloc(size_t nmemb, size_t size);
 
 #endif

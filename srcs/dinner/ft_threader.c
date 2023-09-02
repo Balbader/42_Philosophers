@@ -34,7 +34,7 @@ void	*ft_threader(void *void_philo)
 	// 	philo->left_fork_idx = temp_fork;
 	// }
 	if (philo->id % 2 == 0)
-		ft_usleep(conf->time_to_sleep);
+		ft_usleep(conf->time_to_eat);
 	while (1)
 	{
 		if (ft_check_health(conf) == 0)

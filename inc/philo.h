@@ -25,6 +25,10 @@
 // destroy
 int				ft_destroy_mutexes(t_rules *r);
 
+// check_dinner
+int				ft_check_vitals(t_rules *r, int i);
+int				ft_check_health(t_rules *r);
+
 // parsing
 int				ft_check_args(int ac, char **av);
 int				ft_check_av(char *arg);

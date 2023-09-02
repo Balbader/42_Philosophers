@@ -112,7 +112,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Compiling $(NAME)..."
-	$(CC) $(CFLAGS) $(OBJS) -pthread -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -pthread -o $(NAME)
 	@echo "[" "$(GREEN)OK$(RESET)" "] | $(NAME) ready!"
 
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c

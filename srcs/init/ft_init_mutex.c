@@ -20,12 +20,12 @@ int	ft_init_mutex(t_rules *rules)
 	while (i < rules->nb_philo)
 	{
 		if (pthread_mutex_init(&(rules->forks[i]), NULL))
-			return (write(2, "Error:\nIssue creating mutex.\n", 29));
+			ft_putstr_fd(MUTEX_ERR, 2);
 		i++;
 	}
 	if (pthread_mutex_init(&(rules->printing), NULL))
-		return (write(2, "Error:\nIssue creating mutex.\n", 29));
+		ft_putstr_fd(MUTEX_ERR, 2);
 	if (pthread_mutex_init(&(rules->health_check), NULL))
-		return (write(2, "Error:\nIssue creating mutex.\n", 29));
+		ft_putstr_fd(MUTEX_ERR, 2);
 	return (0);
 }

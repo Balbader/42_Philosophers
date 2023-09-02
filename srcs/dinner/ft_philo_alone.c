@@ -15,7 +15,7 @@
 void	*ft_philo_alone(t_rules *r, t_philo *p)
 {
 	pthread_mutex_lock(&(r->forks[p->right_fork_idx]));
-	ft_print_state(p, r, "has taken a fork");
+	ft_print_state(p, r, FORK);
 	pthread_mutex_unlock(&(r->forks[p->right_fork_idx]));
 	return (0);
 }

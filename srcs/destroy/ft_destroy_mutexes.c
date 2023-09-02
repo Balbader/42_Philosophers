@@ -12,6 +12,10 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * destroy pthread __data
+*/
+
 int	ft_destroy_mutexes(t_config *config)
 {
 	int	i;

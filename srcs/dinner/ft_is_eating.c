@@ -16,7 +16,7 @@ void	ft_is_eating(t_config *conf, t_philo *philo)
 {
 	pthread_mutex_lock(&(conf->health_check));
 	philo->last_meal = ft_get_time();
-	philo->nb_meal++;
+	philo->meal_count++;
 	pthread_mutex_unlock(&(conf->health_check));
 	ft_print_state(philo, conf, EATING);
 	ft_usleep(conf->time_to_eat);

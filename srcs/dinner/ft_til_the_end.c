@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_end.c                                           :+:      :+:    :+:   */
+/*   ft_til_the_end.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: baalbade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 09:44:40 by baalbade          #+#    #+#             */
-/*   Updated: 2023/09/02 09:44:42 by baalbade         ###   ########.fr       */
+/*   Created: 2023/09/02 12:49:12 by baalbade          #+#    #+#             */
+/*   Updated: 2023/09/02 12:49:14 by baalbade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/philo.h"
 
-void	ft_end(t_config *philosophers, int i, int state)
-{
-	int	full_philos;
+/*
+ * The loop will keep running until 1 of 2 conditions are met.
+ * 1. all philosophers have eaten the expected number of meals
+ * 2. a philosopher has died
+*/
 
-	full_philos = 0;
+void	ft_til_the_end(t_config *philosophers, int i, int vitals)
+{
+	int	all_philos;
+
+	all_philos = 0;
 	while (1)
 	{
 		i = 0;
@@ -24,12 +30,12 @@ void	ft_end(t_config *philosophers, int i, int state)
 			break ;
 		while (i < philosophers->nb_philo)
 		{
-			state = ft_check_vitals(philosophers, i);
-			if (state == 1)
+			vitals = ft_check_vitals(philosophers, i);
+			if (vitals == 1)
 				break ;
-			else if (state == 2)
-				full_philos++;
-			if (full_philos == philosophers->nb_philo)
+			else if (vitals == 2)
+				all_philos++;
+			if (all_philos == philosophers->nb_philo)
 			{
 				pthread_mutex_lock(&(philosophers->health_check));
 				philosophers->all_ate = 1;

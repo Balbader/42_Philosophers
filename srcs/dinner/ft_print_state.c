@@ -12,6 +12,10 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * 	
+*/
+
 void	ft_print_state(t_philo *philo, t_config *conf, char *action)
 {
 	pthread_mutex_lock(&(conf->printing));

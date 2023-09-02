@@ -28,7 +28,7 @@ int	ft_start_dinner(t_config *conf)
 		pthread_mutex_unlock(&(conf->health_check));
 		i++;
 	}
-	ft_end(conf, 0, 0);
+	ft_til_the_end(conf, 0, 0);
 	i = 0;
 	while (i < conf->nb_philo)
 	{

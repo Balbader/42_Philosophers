@@ -12,6 +12,13 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * In case there is only one philosopher :
+ * . Lock the thread
+ * . make him pick up a fork
+ * . unlock the thread so he can die in peace
+*/
+
 void	*ft_philo_alone(t_config *conf, t_philo *philo)
 {
 	pthread_mutex_lock(&(conf->forks[philo->right_fork_idx]));

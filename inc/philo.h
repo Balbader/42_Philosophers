@@ -34,6 +34,7 @@ int				ft_check_args(int ac, char **av);
 int				ft_check_av(char *arg);
 
 // init
+int				ft_init_dinner(t_rules *rules, char **av);
 int				ft_init_mutex(t_rules *rules);
 int				ft_init_philosophers(t_rules *rules);
 

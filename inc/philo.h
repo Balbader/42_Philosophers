@@ -33,8 +33,9 @@ void			*ft_calloc(size_t nmemb, size_t size);
 int				ft_check_args(int ac, char **av);
 int				ft_check_av(char *arg);
 
-// SIM INITIALISATION
-int				init_sim(t_rules *rules, char **av);
+// init
+int				ft_init_mutex(t_rules *rules);
+int				ft_init_philosophers(t_rules *rules);
 
 // SIM UTILS
 unsigned long	get_time(void);

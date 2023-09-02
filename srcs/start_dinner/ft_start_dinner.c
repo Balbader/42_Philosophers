@@ -22,7 +22,7 @@ int	ft_start_dinner(t_rules *rules)
 	{
 		if (pthread_create(&(rules->philos[i].thread), NULL,
 				ft_threader, &(rules->philos[i])))
-			return (write(2, "Error:\nIssue creating threads.\n", 31));
+			ft_putstr_fd(THREAD_ERR, 2);
 		pthread_mutex_lock(&(rules->health_check));
 		rules->philos[i].last_meal = ft_get_time();
 		pthread_mutex_unlock(&(rules->health_check));

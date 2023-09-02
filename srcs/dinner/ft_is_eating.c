@@ -12,6 +12,15 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * locks the health_check thread
+ * . gets the current time at which the last meal ended
+ * . increase meal count
+ * unlock thread
+ * . prints current state 
+ * . suspends the execution of the current thread
+*/
+
 void	ft_is_eating(t_config *conf, t_philo *philo)
 {
 	pthread_mutex_lock(&(conf->health_check));

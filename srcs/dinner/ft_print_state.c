@@ -13,18 +13,21 @@
 #include "../../inc/philo.h"
 
 /*
- * 	
+ * 	locks the printing thread
+ * 	checks if all philosophers have eaten of if a philosopher died
+ *	if not will print the current state of each philo.
+ *	unlock the thread
 */
 
-void	ft_print_state(t_philo *philo, t_config *conf, char *action)
+void	ft_print_state(t_philo *philo, t_config *conf, char *state)
 {
 	pthread_mutex_lock(&(conf->printing));
-	if (ft_check_health(conf) == 0 && action[0] != 'd')
+	if (ft_check_health(conf) == 0 && state[0] != 'd')
 	{
 		pthread_mutex_unlock(&(conf->printing));
 		return ;
 	}
 	printf("%ld %d %s\n", ft_time_diff(ft_get_time(),
-			conf->start), philo->id, action);
+			conf->start), philo->id, state);
 	pthread_mutex_unlock(&(conf->printing));
 }

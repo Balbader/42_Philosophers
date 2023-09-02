@@ -12,6 +12,10 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * This is where the magic happens
+ * this function will run the entire dinner
+*/
 void	*ft_threader(void *void_philo)
 {
 	t_philo		*philo;

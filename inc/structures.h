@@ -25,10 +25,10 @@ typedef struct s_philo
 	int				hunger;
 	pthread_t		thread;
 	struct s_philo	*left_philo;
-	struct s_rules	*rules;
-}	t_philo;
+	struct s_config	*config;
+}				 t_philo;
 
-typedef struct s_rules
+typedef struct s_config
 {
 	int				nb_philo;
 	int				time_to_die;
@@ -43,6 +43,6 @@ typedef struct s_rules
 	pthread_mutex_t	forks[200];
 	pthread_mutex_t	printing;
 	pthread_mutex_t	health_check;
-}	t_rules;
+}				t_config;
 
 #endif // !STRUCTURES_H

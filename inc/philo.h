@@ -24,39 +24,30 @@
 # include <stdlib.h>
 
 // destroy
-int				ft_destroy_mutexes(t_rules *r);
+int				ft_destroy_mutexes(t_config *conf);
 
 // check_dinner
-int				ft_check_vitals(t_rules *r, int i);
-int				ft_check_health(t_rules *r);
+int				ft_check_vitals(t_config *philo, int i);
+int				ft_check_health(t_config *philos);
 
 // start dinner
-int				ft_start_dinner(t_rules *rules);
+int				ft_start_dinner(t_config *conf);
 
 // dinner
-void			ft_is_eating(t_rules *r, t_philo *p);
-void			ft_print_state(t_philo *p, t_rules *r, char *action);
+void			ft_is_eating(t_config *conf, t_philo *philo);
+void			ft_print_state(t_philo *philo, t_config *conf, char *action);
 void			*ft_threader(void *void_philo);
-void			*ft_philo_alone(t_rules *r, t_philo *p);
-void			ft_end(t_rules *r, int i, int state);
+void			*ft_philo_alone(t_config *conf, t_philo *philo);
+void			ft_end(t_config *philosophers, int i, int state);
 
 // parsing
 int				ft_check_args(int ac, char **av);
 int				ft_check_av(char *arg);
 
 // init
-int				ft_init_dinner(t_rules *rules, char **av);
-int				ft_init_mutex(t_rules *rules);
-int				ft_init_philosophers(t_rules *rules);
-
-// SIM UTILS
-void			print_action(t_philo *p, t_rules *r, char *s);
-int				check_health(t_rules *r);
-void			print_action(t_philo *p, t_rules *r, char *s);
-void			handle_eat(t_rules *r, t_philo *p);
-
-// SIM
-int				launch_sim(t_rules *rules);
+int				ft_init_dinner(t_config *conf, char **av);
+int				ft_init_mutex(t_config *conf);
+int				ft_init_philosophers(t_config *conf);
 
 // time
 void			ft_usleep(unsigned long ms);

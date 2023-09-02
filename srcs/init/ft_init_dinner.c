@@ -27,7 +27,7 @@ int	ft_init_dinner(t_rules *rules, char **av)
 	{
 		rules->x_meal = ft_atoi(av[5]);
 		if (rules->x_meal <= 0)
-		ft_putstr_fd(MEAL_ERR, 2);
+			ft_putstr_fd(MEAL_ERR, 2);
 	}
 	else
 		rules->x_meal = -1;

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tmalless <tmalless@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 13:49:41 by tmalless          #+#    #+#             */
-/*   Updated: 2023/03/28 16:47:02 by tmalless         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PHILO_H
 
 # define PHILO_H
@@ -55,10 +43,7 @@ typedef struct s_rules
 void			*ft_calloc(size_t nmemb, size_t size);
 int				ft_atoi(const char *nptr);
 char			*ft_itoa(int n);
-char			**ft_split(char const *s, char c);
-size_t			ft_strlen(const char *s);
 int				ft_strcmp(const char *s1, const char *s2);
-char			*ft_substr(char const *s, unsigned int start, size_t len);
 
 // ARGS CHECKING
 int				check_args(int ac, char **av);

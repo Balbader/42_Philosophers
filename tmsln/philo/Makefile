@@ -24,9 +24,9 @@ OBJECT = $(SRCS:.c=.o)
 
 #$(patsubst %.c, $(PATH_OBJS)/%.o, $(SRCS))
 
-#$(SRCS:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror -fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror -g3
 
 CC = cc
 

@@ -32,6 +32,10 @@ int				ft_check_health(t_rules *r);
 // start dinner
 int				ft_start_dinner(t_rules *rules);
 
+// dinner
+void			ft_is_eating(t_rules *r, t_philo *p);
+void			ft_print_state(t_philo *p, t_rules *r, char *action);
+
 // parsing
 int				ft_check_args(int ac, char **av);
 int				ft_check_av(char *arg);

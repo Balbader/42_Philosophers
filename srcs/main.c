@@ -13,7 +13,10 @@
 #include "../inc/philo.h"
 
 /*
- *
+ * . alloc mem
+ * . check args
+ * . check init dinner
+ * . run simmulation
 */
 
 int	main(int ac, char **av)
@@ -22,7 +25,7 @@ int	main(int ac, char **av)
 
 	conf = malloc(sizeof(t_config) * 1);
 	if (!conf)
-		return (write(2, "Error:\nMalloc issue\n", 21));
+		ft_putstr_fd(MALLOC_ERR, 2);
 	if (ft_check_args(ac, av))
 	{
 		free(conf);

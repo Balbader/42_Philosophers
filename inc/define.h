@@ -24,5 +24,6 @@
 # define MEAL_ERR			"Error! All philosophers have to eat at least once."
 # define MUTEX_ERR			"Error! An issue occured while creating a mutex."
 # define THREAD_ERR			"Error! An issue occured while creating a thread."
+# define MALLOC_ERR			"Error! An issue occured while assigning memory."
 
 #endif // !DEFINE_H

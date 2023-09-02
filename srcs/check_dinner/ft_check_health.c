@@ -12,15 +12,15 @@
 
 #include "../../inc/philo.h"
 
-int	ft_check_health(t_rules *r)
+int	ft_check_health(t_config *philo)
 {
 	int	i;
 
-	pthread_mutex_lock(&(r->health_check));
-	if (r->all_ate || r->dead_end)
+	pthread_mutex_lock(&(philo->health_check));
+	if (philo->all_ate || philo->dead_end)
 		i = 0;
 	else
 		i = 1;
-	pthread_mutex_unlock(&(r->health_check));
+	pthread_mutex_unlock(&(philo->health_check));
 	return (i);
 }

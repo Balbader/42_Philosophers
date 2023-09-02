@@ -15,28 +15,28 @@
 /*
  * 
 */
-int	ft_check_vitals(t_rules *r, int i)
+int	ft_check_vitals(t_config *conf, int i)
 {
-	pthread_mutex_lock(&(r->health_check));
-	if (ft_time_diff(ft_get_time(), r->philos[i].last_meal)
-		> (unsigned long)r->time_to_die)
+	pthread_mutex_lock(&(conf->health_check));
+	if (ft_time_diff(ft_get_time(), conf->philos[i].last_meal)
+		> (unsigned long)conf->time_to_die)
 	{
-		r->dead_end = 1;
-		pthread_mutex_unlock(&(r->health_check));
-		ft_print_state(&(r->philos[i]), r, DIED);
+		conf->dead_end = 1;
+		pthread_mutex_unlock(&(conf->health_check));
+		ft_print_state(&(conf->philos[i]), conf, DIED);
 		return (1);
 	}
-	else if (r->x_meal > 0 && r->philos[i].hunger == 1)
+	else if (conf->x_meal > 0 && conf->philos[i].hunger == 1)
 	{
-		if (r->philos[i].nb_meal >= r->x_meal)
+		if (conf->philos[i].nb_meal >= conf->x_meal)
 		{
-			r->philos[i].hunger = 0;
-			pthread_mutex_unlock(&(r->health_check));
+			conf->philos[i].hunger = 0;
+			pthread_mutex_unlock(&(conf->health_check));
 			return (2);
 		}
-		pthread_mutex_unlock(&(r->health_check));
+		pthread_mutex_unlock(&(conf->health_check));
 	}
 	else
-		pthread_mutex_unlock(&(r->health_check));
+		pthread_mutex_unlock(&(conf->health_check));
 	return (0);
 }

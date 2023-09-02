@@ -13,28 +13,29 @@
 #include "../inc/philo.h"
 
 /*
+ *
 */
 
 int	main(int ac, char **av)
 {
-	t_rules			*rules;
+	t_config	*conf;
 
-	rules = malloc(sizeof(t_rules) * 1);
-	if (!rules)
+	conf = malloc(sizeof(t_config) * 1);
+	if (!conf)
 		return (write(2, "Error:\nMalloc issue\n", 21));
 	if (ft_check_args(ac, av))
 	{
-		free(rules);
+		free(conf);
 		return (0);
 	}
-	if (ft_init_dinner(rules, av) > 1)
+	if (ft_init_dinner(conf, av) > 1)
 	{
-		free(rules);
+		free(conf);
 		return (0);
 	}
-	else if (ft_init_dinner(rules, av) == 1)
-		return (ft_destroy_mutexes(rules));
-	if (ft_start_dinner(rules))
-		return (ft_destroy_mutexes(rules));
+	else if (ft_init_dinner(conf, av) == 1)
+		return (ft_destroy_mutexes(conf));
+	if (ft_start_dinner(conf))
+		return (ft_destroy_mutexes(conf));
 	return (1);
 }

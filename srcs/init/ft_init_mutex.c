@@ -12,20 +12,20 @@
 
 #include "../../inc/philo.h"
 
-int	ft_init_mutex(t_rules *rules)
+int	ft_init_mutex(t_config *conf)
 {
 	int	i;
 
 	i = 0;
-	while (i < rules->nb_philo)
+	while (i < conf->nb_philo)
 	{
-		if (pthread_mutex_init(&(rules->forks[i]), NULL))
+		if (pthread_mutex_init(&(conf->forks[i]), NULL))
 			ft_putstr_fd(MUTEX_ERR, 2);
 		i++;
 	}
-	if (pthread_mutex_init(&(rules->printing), NULL))
+	if (pthread_mutex_init(&(conf->printing), NULL))
 		ft_putstr_fd(MUTEX_ERR, 2);
-	if (pthread_mutex_init(&(rules->health_check), NULL))
+	if (pthread_mutex_init(&(conf->health_check), NULL))
 		ft_putstr_fd(MUTEX_ERR, 2);
 	return (0);
 }

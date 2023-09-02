@@ -12,10 +12,10 @@
 
 #include "../../inc/philo.h"
 
-void	*ft_philo_alone(t_rules *r, t_philo *p)
+void	*ft_philo_alone(t_config *conf, t_philo *philo)
 {
-	pthread_mutex_lock(&(r->forks[p->right_fork_idx]));
-	ft_print_state(p, r, FORK);
-	pthread_mutex_unlock(&(r->forks[p->right_fork_idx]));
+	pthread_mutex_lock(&(conf->forks[philo->right_fork_idx]));
+	ft_print_state(philo, conf, FORK);
+	pthread_mutex_unlock(&(conf->forks[philo->right_fork_idx]));
 	return (0);
 }

@@ -12,7 +12,7 @@
 
 #include "../../inc/philo.h"
 
-void	ft_end(t_rules *r, int i, int state)
+void	ft_end(t_config *philosophers, int i, int state)
 {
 	int	full_philos;
 
@@ -20,20 +20,20 @@ void	ft_end(t_rules *r, int i, int state)
 	while (1)
 	{
 		i = 0;
-		if (ft_check_health(r) == 0)
+		if (ft_check_health(philosophers) == 0)
 			break ;
-		while (i < r->nb_philo)
+		while (i < philosophers->nb_philo)
 		{
-			state = ft_check_vitals(r, i);
+			state = ft_check_vitals(philosophers, i);
 			if (state == 1)
 				break ;
 			else if (state == 2)
 				full_philos++;
-			if (full_philos == r->nb_philo)
+			if (full_philos == philosophers->nb_philo)
 			{
-				pthread_mutex_lock(&(r->health_check));
-				r->all_ate = 1;
-				pthread_mutex_unlock(&(r->health_check));
+				pthread_mutex_lock(&(philosophers->health_check));
+				philosophers->all_ate = 1;
+				pthread_mutex_unlock(&(philosophers->health_check));
 			}
 			i++;
 		}

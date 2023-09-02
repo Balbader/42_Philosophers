@@ -12,22 +12,22 @@
 
 #include "../../inc/philo.h"
 
-int	ft_destroy_mutexes(t_rules *r)
+int	ft_destroy_mutexes(t_config *config)
 {
 	int	i;
 
 	i = 0;
-	while (i < r->nb_philo)
+	while (i < config->nb_philo)
 	{
-		if (!&(r->forks[i]))
-			pthread_mutex_destroy(&(r->forks[i]));
+		if (!&(config->forks[i]))
+			pthread_mutex_destroy(&(config->forks[i]));
 		i++;
 	}
-	if (&(r->printing.__data))
-		pthread_mutex_destroy(&(r->printing));
-	if (&(r->health_check.__data))
-		pthread_mutex_destroy(&(r->health_check));
-	if (r)
-		free(r);
+	if (&(config->printing.__data))
+		pthread_mutex_destroy(&(config->printing));
+	if (&(config->health_check.__data))
+		pthread_mutex_destroy(&(config->health_check));
+	if (config)
+		free(config);
 	return (0);
 }

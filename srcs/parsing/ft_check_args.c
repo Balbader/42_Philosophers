@@ -18,13 +18,13 @@ int	ft_check_args(int ac, char **av)
 
 	i = 1;
 	if (ac < 5 || ac > 6)
-		return (write(2, "Error:\nWrong number of arguments.\n", 34));
+		ft_putstr_fd(ARG_NB_ERR, 2);
 	while (i < ac)
 	{
 		if (!ft_is_num(av[i]))
-			return (write(2, "Error:\nCan't interpret some characters.\n", 40));
+			ft_putstr_fd(ARG_ERR, 2);
 		if (!ft_check_av(av[i]))
-			return (write(2, "Error:\nOut of range values.\n", 28));
+			ft_putstr_fd(ARG_LIMIT_ERR, 2);
 		i++;
 	}
 	return (0);

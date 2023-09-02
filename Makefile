@@ -67,6 +67,7 @@ UTILS_FILES			:=	\
 						ft_calloc.c \
 						ft_is_num.c \
 						ft_itoa.c \
+						ft_putstr_fd.c \
 						ft_strcmp.c
 UTILS				:=	$(addprefix $(UTILS_DIR), $(UTILS_FILES))
 

@@ -59,7 +59,7 @@ TIME_FILES			:=	\
 						ft_get_time.c \
 						ft_time_diff.c \
 						ft_usleep.c
-TIME				:=	$(addprefix $(TIME_DIR) $(TIME_FILES))
+TIME				:=	$(addprefix $(TIME_DIR), $(TIME_FILES))
 
 UTILS_DIR			:=	utils/
 UTILS_FILES			:=	\

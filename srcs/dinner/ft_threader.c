@@ -28,15 +28,15 @@ void	*ft_threader(void *void_philo)
 		if (ft_check_health(r) == 0)
 			break ;
 		pthread_mutex_lock(&(r->forks[p->right_fork_idx]));
-		ft_print_state(p, r, "has taken a fork");
+		ft_print_state(p, r, FORK);
 		pthread_mutex_lock(&(r->forks[p->left_fork_idx]));
-		ft_print_state(p, r, "has taken a fork");
+		ft_print_state(p, r, FORK);
 		ft_is_eating(r, p);
 		pthread_mutex_unlock(&(r->forks[p->right_fork_idx]));
 		pthread_mutex_unlock(&(r->forks[p->left_fork_idx]));
-		ft_print_state(p, r, "is sleeping");
+		ft_print_state(p, r, SLEEPING);
 		ft_usleep(r->time_to_sleep);
-		ft_print_state(p, r, "is thinking");
+		ft_print_state(p, r, THINKING);
 	}
 	return (0);
 }

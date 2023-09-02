@@ -22,14 +22,14 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-// Utils
+// utils
 int				ft_atoi(const char *nptr);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_is_num(char *arg);
 char			*ft_itoa(int n);
 void			*ft_calloc(size_t nmemb, size_t size);
 
-// Parsing
+// parsing
 int				ft_check_args(int ac, char **av);
 int				ft_check_av(char *arg);
 
@@ -48,7 +48,7 @@ void			handle_eat(t_rules *r, t_philo *p);
 // SIM
 int				launch_sim(t_rules *rules);
 
-// CLEAN
-int				clean_mem(t_rules *r);
+// destroy
+int				ft_destroy_mutexes(t_rules *r);
 
 #endif

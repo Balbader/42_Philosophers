@@ -12,6 +12,11 @@
 
 #include "../../inc/philo.h"
 
+/*
+ * Locks the health_check thread is order to check if either all philosophers
+ * have eaten or if one has died.
+*/
+
 int	ft_check_health(t_config *philo)
 {
 	int	i;

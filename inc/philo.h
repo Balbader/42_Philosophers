@@ -35,7 +35,7 @@ int				ft_start_dinner(t_config *conf);
 
 // dinner
 void			ft_is_eating(t_config *conf, t_philo *philo);
-void			ft_print_state(t_philo *philo, t_config *conf, char *action);
+void			ft_print_state(t_philo *philo, t_config *conf, char *state);
 void			*ft_threader(void *void_philo);
 void			*ft_philo_alone(t_config *conf, t_philo *philo);
 void			ft_til_the_end(t_config *philosophers, int i, int vitals);

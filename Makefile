@@ -30,11 +30,11 @@ DESTROY				:=	$(addprefix $(DESTROY_DIR), $(DESTROY_FILES))
 
 DINNER_DIR			:=	dinner/
 DINNER_FILES		:=	\
-						ft_end.c \
 						ft_is_eating.c \
 						ft_philo_alone.c \
 						ft_print_state.c \
-						ft_threader.c
+						ft_threader.c \
+						ft_til_the_end.c
 DINNER				:=	$(addprefix $(DINNER_DIR), $(DINNER_FILES))
 
 INIT_DIR			:=	init/

@@ -18,6 +18,6 @@ void	ft_is_eating(t_rules *r, t_philo *p)
 	p->last_meal = ft_get_time();
 	p->nb_meal++;
 	pthread_mutex_unlock(&(r->health_check));
-	print_action(p, r, "is eating");
+	ft_print_state(p, r, "is eating");
 	ft_usleep(r->time_to_eat);
 }

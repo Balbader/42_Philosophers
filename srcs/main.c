@@ -31,7 +31,7 @@ int	main(int ac, char **av)
 	}
 	else if (ft_init_dinner(rules, av) == 1)
 		return (ft_destroy_mutexes(rules));
-	if (launch_sim(rules))
+	if (ft_start_dinner(rules))
 		return (ft_destroy_mutexes(rules));
 	return (1);
 }

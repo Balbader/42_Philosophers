@@ -14,6 +14,7 @@
 # define PHILO_H
 
 # include "structures.h"
+# include "define.h"
 
 # include <sys/time.h>
 # include <string.h>
@@ -68,5 +69,6 @@ int				ft_strcmp(const char *s1, const char *s2);
 int				ft_is_num(char *arg);
 char			*ft_itoa(int n);
 void			*ft_calloc(size_t nmemb, size_t size);
+void			ft_putstr_fd(char *s, int fd);
 
 #endif

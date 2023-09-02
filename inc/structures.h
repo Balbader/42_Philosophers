@@ -21,8 +21,8 @@ typedef struct s_philo
 	int				left_fork_idx;
 	int				right_fork_idx;
 	unsigned long	last_meal;
-	int				nb_meal;
-	int				hunger;
+	int				meal_count;
+	int				hungry;
 	pthread_t		thread;
 	struct s_philo	*left_philo;
 	struct s_config	*config;
@@ -34,7 +34,7 @@ typedef struct s_config
 	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
-	int				x_meal;
+	int				tot_meals;
 	int				dead_end;
 	int				all_ate;
 	unsigned long	start;

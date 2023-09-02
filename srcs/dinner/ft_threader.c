@@ -20,19 +20,11 @@ void	*ft_threader(void *void_philo)
 {
 	t_philo		*philo;
 	t_config	*conf;
-	int			temp_fork;
 
-	temp_fork = 0;
 	philo = (t_philo *)void_philo;
 	conf = philo->config;
 	if (conf->nb_philo == 1)
 		return (ft_philo_alone(conf, philo));
-	// if (philo->id % 2 == 0)
-	// {
-	// 	temp_fork = philo->right_fork_idx;
-	// 	philo->right_fork_idx = philo->left_fork_idx;
-	// 	philo->left_fork_idx = temp_fork;
-	// }
 	if (philo->id % 2 == 0)
 		ft_usleep(conf->time_to_eat);
 	while (1)
@@ -49,6 +41,7 @@ void	*ft_threader(void *void_philo)
 		ft_print_state(philo, conf, SLEEPING);
 		ft_usleep(conf->time_to_sleep);
 		ft_print_state(philo, conf, THINKING);
+		usleep(100);
 	}
 	return (0);
 }

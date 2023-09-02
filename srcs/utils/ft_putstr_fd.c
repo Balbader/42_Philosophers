@@ -21,4 +21,5 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	if (i > 0)
 		write(fd, s, i);
+	write(fd, "\n", 1);
 }

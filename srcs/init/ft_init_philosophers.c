@@ -24,11 +24,16 @@ int	ft_init_philosophers(t_config *conf)
 	while (i < conf->nb_philo)
 	{
 		conf->philos[i].id = i + 1;
-		conf->philos[i].right_fork_idx = i;
-		if (conf->nb_philo > 1)
+		if (conf->philos[i].id % 2 == 0)
+		{
+			conf->philos[i].right_fork_idx = i;
 			conf->philos[i].left_fork_idx = (i + 1) % conf->nb_philo;
+		}
 		else
-			conf->philos[i].left_fork_idx = -1;
+		{
+			conf->philos[i].right_fork_idx = (i + 1) % conf->nb_philo;
+			conf->philos[i].left_fork_idx = i;
+		}
 		conf->philos[i].last_meal = 0;
 		conf->philos[i].meal_count = 0;
 		conf->philos[i].config = conf;

@@ -43,6 +43,6 @@ void	ft_til_the_end(t_config *philosophers, int i, int vitals)
 			}
 			i++;
 		}
+		usleep(100);
 	}
-	usleep(200);
 }

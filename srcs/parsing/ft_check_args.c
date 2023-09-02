@@ -18,13 +18,23 @@ int	ft_check_args(int ac, char **av)
 
 	i = 1;
 	if (ac < 5 || ac > 6)
+	{
 		ft_putstr_fd(ARG_NB_ERR, 2);
+		return (1);
+	}
+
 	while (i < ac)
 	{
 		if (!ft_is_num(av[i]))
+		{
 			ft_putstr_fd(ARG_ERR, 2);
+			return (1);
+		}
 		if (!ft_check_av(av[i]))
+		{
 			ft_putstr_fd(ARG_LIMIT_ERR, 2);
+			return (1);
+		}
 		i++;
 	}
 	return (0);

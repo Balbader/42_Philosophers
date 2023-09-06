@@ -33,7 +33,7 @@ static void	ft_run_loop(t_config *conf, t_philo *philo)
 		ft_print_state(philo, conf, SLEEPING);
 		ft_usleep(conf->time_to_sleep);
 		ft_print_state(philo, conf, THINKING);
-		usleep(100);
+		usleep(200);
 	}
 }
 

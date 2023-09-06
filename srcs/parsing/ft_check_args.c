@@ -22,7 +22,6 @@ int	ft_check_args(int ac, char **av)
 		ft_putstr_fd(ARG_NB_ERR, 2);
 		return (1);
 	}
-
 	while (i < ac)
 	{
 		if (!ft_is_num(av[i]))

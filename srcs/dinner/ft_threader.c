@@ -14,7 +14,7 @@
 
 /*
  * This is where the magic happens
- * this function will run the entire dinner
+ * this function will run the simulation
 */
 
 static void	ft_run_loop(t_config *conf, t_philo *philo)

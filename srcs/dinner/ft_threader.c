@@ -16,17 +16,9 @@
  * This is where the magic happens
  * this function will run the entire dinner
 */
-void	*ft_threader(void *void_philo)
-{
-	t_philo		*philo;
-	t_config	*conf;
 
-	philo = (t_philo *)void_philo;
-	conf = philo->config;
-	if (conf->nb_philo == 1)
-		return (ft_philo_alone(conf, philo));
-	if (philo->id % 2 == 0)
-		ft_usleep(conf->time_to_eat);
+static void	ft_run_loop(t_config *conf, t_philo *philo)
+{
 	while (1)
 	{
 		if (ft_check_health(conf) == 0)
@@ -43,5 +35,19 @@ void	*ft_threader(void *void_philo)
 		ft_print_state(philo, conf, THINKING);
 		usleep(100);
 	}
+}
+
+void	*ft_threader(void *void_philo)
+{
+	t_philo		*philo;
+	t_config	*conf;
+
+	philo = (t_philo *)void_philo;
+	conf = philo->config;
+	if (conf->nb_philo == 1)
+		return (ft_philo_alone(conf, philo));
+	if (philo->id % 2 == 0)
+		ft_usleep(conf->time_to_eat);
+	ft_run_loop(conf, philo);
 	return (0);
 }

@@ -92,9 +92,7 @@ OBJS				:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
 DEPS				:=	$(OBJS:.o=.d)
 
 CC					:=	cc
-CFLAGS				:=	-Wall -Wextra -Werror -g3 -fsanitize=thread
-# CFLAGS				:=	-Wall -Wextra -Werror -g3 -fsanitize=address
-# CFLAGS				:=	-Wall -Wextra -Werror
+CFLAGS				:=	-Wall -Wextra -Werror
 RM					:=	rm -r -f
 MAKEFLAGS			+=	--no-print-directory
 DIR_DUP				=	mkdir -p $(@D)

@@ -26,7 +26,7 @@ typedef struct s_philo
 	pthread_t		thread;
 	struct s_philo	*left_philo;
 	struct s_config	*config;
-}				 t_philo;
+}	t_philo;
 
 typedef struct s_config
 {
@@ -43,6 +43,6 @@ typedef struct s_config
 	pthread_mutex_t	forks[200];
 	pthread_mutex_t	printing;
 	pthread_mutex_t	health_check;
-}				t_config;
+}	t_config;
 
 #endif // !STRUCTURES_H
